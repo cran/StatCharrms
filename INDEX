@@ -1,0 +1,32 @@
+exampleHistData         Example Histology data
+Histopath               GUI for analysis of histopathological data
+RSCABK                  Runs the kth slice of RSCABS
+RSCABSMain              Cleans data and runs RSCABS when called from
+                        the GUI interface
+addHistoSpec            Specify data parameters
+checkSelction           Checks user inputs.
+convert2Score           Converts any object that is not zero or a
+                        positive number to NA
+detailedResults2HTML    Saves results as an HTML
+detailedResults2Output
+                        Print results to the GUI window
+filterData              Filters problematic data
+getDir                  Attain the name of a directory
+openCB                  Open a csv file
+otherPath               Other analyses for histopathological endpoints
+popMessage              Pops up a message
+prepDataRSCABS          Prepares data for an RSCABS analysis
+RSCABS-package          Runs the Rao-Scott adjusted Cochran Armitage
+                        trend test by slices (RSCABS) analysis
+runDetailedResults      Attain detailed results on an endpoint
+runEffectSelect         Runs a detailed analysis on an endpoint
+runRSCABS               Runs RSCABS
+runStdSubset            Subset the data used in Histopath
+saveCB                  Attain the name of a file to be saved
+saveFile                Saves a data set
+selectPara              Window to declare the names of variables and
+                        values
+stepDownRSCABS          Performs the step down aspect of RSCABS
+stepKRSCABS             Steps through the severity score for a given
+                        effect
+subsetDataKeep          Subsets data
