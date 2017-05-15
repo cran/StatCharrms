@@ -270,7 +270,7 @@ mixed effects Cox proportional hazards analysis on the data then generate the \t
 	
 \label{subsec:OtherEndpointsSpec}
 \subsection*{Other Endpoints Specification Tab}
-\addcontentsline{toc}{subsection}{Other Endpoints Specification Tab}}
+\addcontentsline{toc}{subsection}{Other Endpoints Specification Tab}
 	
 \hypertarget{fig:DataSpecTab}{} 
 \begin{center}
@@ -368,7 +368,7 @@ mixed effects Cox proportional hazards analysis on the data then generate the \t
 	
 \label{subsec:OtherEndpointsResults}
 \subsection*{Other Endpoints Results}
-\addcontentsline{toc}{subsection}{Other Endpoints Results}}
+\addcontentsline{toc}{subsection}{Other Endpoints Results}
 	
 
 \begin{center}
@@ -625,28 +625,28 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
 \addcontentsline{toc}{section}{References}	
 
 \begin{enumerate}
- \item   \hypertarget{R1}{Dunn, O. J. (1964). Multiple comparisons using rank sums. \textit{Technometrics} \textbf{6}:241\textemdash252.}
+ \item   \hypertarget{R1}{Dunn, O. J. (1964). Multiple comparisons using rank sums. \textit{Technometrics} \textbf{6}:241\textemdash{}252.}
 	
  \item	 \hypertarget{R2}{Dunnett, C. W. (1955). A multiple comparison procedure for comparing several treatments with a control. 
 		\textit{Journal of the American Statistical Association}, \textbf{50}:1096\textendash{}1121.}
 
 
  \item	 \hypertarget{R3}{Green, J. W., Springer, T. A., Saulnier, A. N., and Swintek, J. A. (2014). Statistical analysis of histopathological endpoints. 
-		  \textit{Environmental Toxicology and Chemistry}, \textbf{33}(5): 1108\textemdash1116}
+		  \textit{Environmental Toxicology and Chemistry}, \textbf{33}(5): 1108\textemdash{}1116}
 
 \item	 \hypertarget{R4}{Groeneveld, R. and Meeden, G. (1984). Measuring Skewness and Kurtosis. 
-		\textit{Journal of the Royal Statistical Society. Series D (The Statistician)} \textbf{33}(4): 391\textemdash399.} 
+		\textit{Journal of the Royal Statistical Society. Series D (The Statistician)} \textbf{33}(4): 391\textemdash{}399.} 
 
- \item	 \hypertarget{R5}{Hosmer, D.W. Jr and Lemeshow, S. (1999). \textit{Applied Survival Analysis: Regression Modeling of Time to Event Data}. Wiley\textemdashInterscience. }		
+ \item	 \hypertarget{R5}{Hosmer, D.W. Jr and Lemeshow, S. (1999). \textit{Applied Survival Analysis: Regression Modeling of Time to Event Data}. Wiley\textemdash{}Interscience. }		
 	
- \item	 \hypertarget{R6}{Jonckheere, A. R. (1954). A distribution\textendash{}free k\textendash{}sample test against ordered alternatives.\\ \textit{Biometrika} \textbf{41}:133\textemdash145. }
+ \item	 \hypertarget{R6}{Jonckheere, A. R. (1954). A distribution\textendash{}free k\textendash{}sample test against ordered alternatives.\\ \textit{Biometrika} \textbf{41}:133\textemdash{}145. }
 
  \item	 \hypertarget{R7}{Kaplan E. L. and Meier P. (1958). Non\textendash{}parametric estimation from incomplete observations. 
-	\textit{Journal of the American Statistical Association } \textbf{53}:457\textemdash481}
+	\textit{Journal of the American Statistical Association } \textbf{53}:457\textemdash{}481}
 
  
  \item  \hypertarget{R8}{Lee, E.T. and Wang, J.W., (2003). \textit{Statistical Methods for Survival Data Analysis, 3th edition}.} 
-	Wiley\textemdashInterscience. 
+	Wiley\textemdash{}Interscience. 
 
  \item  \hypertarget{R9}{OECD, (2014). Current Approaches in the Statistical Analysis of Ecotoxicity Data, OECD	
 	Publishing, Paris. \\
@@ -658,13 +658,13 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
  \item  \hypertarget{R11}{OECD, (2015). OECD Guidelines for the Testing of Chemicals, Section 2. Test No. 241: The Larval Amphibian Growth and Development Assay 
 	(LAGDA). OECD Publishing, Paris. DOI: http://dx.doi.org/10.1787/9789264242340\textemdash{}en}
  
- \item  \hypertarget{R12}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash1022. }
+ \item  \hypertarget{R12}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash{}1022. }
  
- \item  \hypertarget{R13}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash333.}	
+ \item  \hypertarget{R13}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash{}333.}	
 
- \item  \hypertarget{R14}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash175. }
+ \item  \hypertarget{R14}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash{}175. }
 
- \item  \hypertarget{R15}{Westfall P.H. (2014). Kurtosis as Peakedness, 1905\textendash{}2014. R.I.P.. \textit{The American Statistician} \textbf{68}(3):191\textemdash195, DOI: 10.1080/00031305.2014.917055}
+ \item  \hypertarget{R15}{Westfall P.H. (2014). Kurtosis as Peakedness, 1905\textendash{}2014. R.I.P.. \textit{The American Statistician} \textbf{68}(3):191\textemdash{}195, DOI: 10.1080/00031305.2014.917055}
 
  \end{enumerate}
  

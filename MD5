@@ -1,4 +1,4 @@
-0229238a69c690027256743d9598ad8e *DESCRIPTION
+0aa7b3d0ca466c38aa1dfe637e9ff165 *DESCRIPTION
 ed9a7a2b70e963bccd0fddf23f3690d5 *INDEX
 ad3b10f93c93cc474ceffcd647515113 *NAMESPACE
 c7689c9ebb8067e51afa3fc294f96d34 *R/FindFormat.R
@@ -44,8 +44,8 @@ dcafbe9ddd2ed71b2351468750b39ffe *data/eventTimeData.rda
 93ce22039b62bdd9026fd2fa148b4892 *data/fecundityData.rda
 5f0b9ba3c45c21fdfda95b85bbd20492 *data/lengthWeightData.rda
 0b594abdf11b4bf0357f5f8e2e930c66 *inst/CITATION
-01c28d5fdda2222274fdfbbeec4f5291 *inst/doc/StatCharrms.Rnw
-11c1d6120f1ade5ef3f707bb915ce1c0 *inst/doc/StatCharrms.pdf
+265986001dcb6e3f7d2bacb0c2af1f8f *inst/doc/StatCharrms.Rnw
+b8d43bb5ef2a3879ae180ab1756512b9 *inst/doc/StatCharrms.pdf
 24cf7ed33cbe6792976022ef6318f580 *man/FindFormat.Rd
 646ebe42018f891879100d6590622022 *man/ReadMeFile.Rd
 df3811823cd345546575ca077c23fc1f *man/Reference.Rd
@@ -92,8 +92,6 @@ ad18cdd146b5e03360c199aa3b5a2667 *vignettes/FlowChart.png
 39eb9288f9b916ad8445a84bbc614939 *vignettes/JTTest.png
 e18e10756e88d42f8870b039746d0042 *vignettes/Leven.png
 551fa9cd9cdf963f9edf2bc03fad91c5 *vignettes/MonoTest.png
-2f5fbf14960b1d659570de44faa35089 *vignettes/RSCABS-001.pdf
-49db170838e29adf38ad4ce5592bf7d1 *vignettes/RSCABS.tex
 ab4a051f40b0a0a1f88e3c16b3638f68 *vignettes/StandardAnl1.png
 934f98e8908c011f25c12b34b7cdce54 *vignettes/StandardAnl2-n.png
 6f10a8fa448b9ad0212848f4aa0297e4 *vignettes/StandardAnl2.png
@@ -105,8 +103,8 @@ cac299b97121e5ff3247a4f10d898c79 *vignettes/StandardAnl5.png
 7129e0989ee3a1b7ecc2d6400478f604 *vignettes/StandardAnl6-n.png
 2f9b95e1caa59cc151e93e38703d5dbf *vignettes/StandardAnl7-n.png
 a6f6387b6980ed7ff036e7aa5ce8f16e *vignettes/StandardAnl7.png
-01c28d5fdda2222274fdfbbeec4f5291 *vignettes/StatCharrms.Rnw
-01c28d5fdda2222274fdfbbeec4f5291 *vignettes/StatCharrms.tex
+265986001dcb6e3f7d2bacb0c2af1f8f *vignettes/StatCharrms.Rnw
+265986001dcb6e3f7d2bacb0c2af1f8f *vignettes/StatCharrms.tex
 ad63bd36c14c605e4115c5f626277043 *vignettes/Time2Event1.png
 2518e90c4864becfbadd5f0410557ac6 *vignettes/Time2Event2.png
 da94643444c34c0f367beb8471ae8208 *vignettes/Time2Event3.png
