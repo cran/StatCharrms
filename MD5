@@ -1,4 +1,4 @@
-0aa7b3d0ca466c38aa1dfe637e9ff165 *DESCRIPTION
+e0862d5abec0016e6e2a301858967fac *DESCRIPTION
 ed9a7a2b70e963bccd0fddf23f3690d5 *INDEX
 ad3b10f93c93cc474ceffcd647515113 *NAMESPACE
 c7689c9ebb8067e51afa3fc294f96d34 *R/FindFormat.R
@@ -44,8 +44,8 @@ dcafbe9ddd2ed71b2351468750b39ffe *data/eventTimeData.rda
 93ce22039b62bdd9026fd2fa148b4892 *data/fecundityData.rda
 5f0b9ba3c45c21fdfda95b85bbd20492 *data/lengthWeightData.rda
 0b594abdf11b4bf0357f5f8e2e930c66 *inst/CITATION
-265986001dcb6e3f7d2bacb0c2af1f8f *inst/doc/StatCharrms.Rnw
-b8d43bb5ef2a3879ae180ab1756512b9 *inst/doc/StatCharrms.pdf
+fcaa2a2bd82c976814726dd8b114ba9e *inst/doc/StatCharrms.Rnw
+9eb709325b714021c8262d7cc863024c *inst/doc/StatCharrms.pdf
 24cf7ed33cbe6792976022ef6318f580 *man/FindFormat.Rd
 646ebe42018f891879100d6590622022 *man/ReadMeFile.Rd
 df3811823cd345546575ca077c23fc1f *man/Reference.Rd
@@ -103,8 +103,8 @@ cac299b97121e5ff3247a4f10d898c79 *vignettes/StandardAnl5.png
 7129e0989ee3a1b7ecc2d6400478f604 *vignettes/StandardAnl6-n.png
 2f9b95e1caa59cc151e93e38703d5dbf *vignettes/StandardAnl7-n.png
 a6f6387b6980ed7ff036e7aa5ce8f16e *vignettes/StandardAnl7.png
-265986001dcb6e3f7d2bacb0c2af1f8f *vignettes/StatCharrms.Rnw
-265986001dcb6e3f7d2bacb0c2af1f8f *vignettes/StatCharrms.tex
+fcaa2a2bd82c976814726dd8b114ba9e *vignettes/StatCharrms.Rnw
+fcaa2a2bd82c976814726dd8b114ba9e *vignettes/StatCharrms.tex
 ad63bd36c14c605e4115c5f626277043 *vignettes/Time2Event1.png
 2518e90c4864becfbadd5f0410557ac6 *vignettes/Time2Event2.png
 da94643444c34c0f367beb8471ae8208 *vignettes/Time2Event3.png

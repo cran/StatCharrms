@@ -333,8 +333,8 @@ mixed effects Cox proportional hazards analysis on the data then generate the \t
 	\begin{enumerate}
 		\item[\begingroup\color{red}A:\endgroup] The name of the \textbf{Time Variable}, which indicates when the observation occurred.
 		
-		\item[\begingroup\color{red}B:\endgroup] If the time is listed as dates, the textbf\{Time Format} is used to specify the format the date is in. 
-			The \textbf{Time Variable} can also be a list of numbers, in which case (\textcolor{red}{B}) can be set to \textbf{Numeric}
+		\item[\begingroup\color{red}B:\endgroup] If the time is listed as dates, the \textbf{Time Format} is used to specify the format the date is in. 
+			The \textbf{Time Variable} can also be a list of numbers, in which case (\textcolor{red}{B}) can be set to \textbf{Numeric}.
 		
 		\item[\begingroup\color{red}C:\endgroup] The \textbf{Analysis Interval} is the number of units in time (e.g. number of days) each endpoint is averaged over for the analysis.  
 
@@ -660,7 +660,7 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
  
  \item  \hypertarget{R12}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash{}1022. }
  
- \item  \hypertarget{R13}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash{}333.}	
+ \item  \hypertarget{R13}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \textbf{14}:327\textemdash{}333.}	
 
  \item  \hypertarget{R14}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash{}175. }
 
