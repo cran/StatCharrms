@@ -1,4 +1,4 @@
-citHeader("To cite the RSCABS package in publications use:")
+citHeader("To cite the StatCharrms package in publications use:")
 
 
 citEntry(entry = "Manual",
@@ -7,8 +7,8 @@ citEntry(entry = "Manual",
 				  as.person("John Haselman")
 				   ),				   
 	title = "StatCharms",
-	year = 2016,
+	year = 2017,
 
  textVersion = paste(
-	 "Swintek, J., Flynn, K., Haselman, J., 2016", "StatCharrms")
+	 "Swintek, J., Flynn, K., Haselman, J., 2017", "StatCharrms")
 )

@@ -1,10 +1,10 @@
-e0862d5abec0016e6e2a301858967fac *DESCRIPTION
+3f8aa059ab62b221727b412f63fe896a *DESCRIPTION
 ed9a7a2b70e963bccd0fddf23f3690d5 *INDEX
 ad3b10f93c93cc474ceffcd647515113 *NAMESPACE
 c7689c9ebb8067e51afa3fc294f96d34 *R/FindFormat.R
 f1b6469b3f1b0cb1e742be525c34370a *R/ReadMeFile.R
 f456241317dc62dc1cae2acaf570d686 *R/Reference.R
-e0ba0f41b203fea07505a98c2f47dea0 *R/Run.StatCharrms.R
+4938b6c076c4cb8f4b4719197909105e *R/Run.StatCharrms.R
 f5760b85d71b8f08b3acf2f98f8fe2bb *R/ShowChangeLog.R
 a177303632d9ee943f205d4a426c13b6 *R/StatCharrms-internal.R
 e64441e2a4dad64748bc12fd2227a898 *R/StdEndMain.R
@@ -43,9 +43,9 @@ b1c85e21374eff92bfceac44500fd041 *R/tranformTime.R
 dcafbe9ddd2ed71b2351468750b39ffe *data/eventTimeData.rda
 93ce22039b62bdd9026fd2fa148b4892 *data/fecundityData.rda
 5f0b9ba3c45c21fdfda95b85bbd20492 *data/lengthWeightData.rda
-0b594abdf11b4bf0357f5f8e2e930c66 *inst/CITATION
+e830b72fd68847015db44e0c2d1ee519 *inst/CITATION
 fcaa2a2bd82c976814726dd8b114ba9e *inst/doc/StatCharrms.Rnw
-9eb709325b714021c8262d7cc863024c *inst/doc/StatCharrms.pdf
+2cf7eec27ec521547135a1679c67ee77 *inst/doc/StatCharrms.pdf
 24cf7ed33cbe6792976022ef6318f580 *man/FindFormat.Rd
 646ebe42018f891879100d6590622022 *man/ReadMeFile.Rd
 df3811823cd345546575ca077c23fc1f *man/Reference.Rd
