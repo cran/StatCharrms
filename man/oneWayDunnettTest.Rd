@@ -9,7 +9,8 @@
 }
 \usage{
 oneWayDunnettTest(Data, Treatment, Response, 
-WeightList = NULL, TestDirection = "Decreasing")
+WeightList = NULL, TestDirection = "Decreasing"
+,alpha = 0.05)
 }
 
 \arguments{
@@ -28,6 +29,10 @@ WeightList = NULL, TestDirection = "Decreasing")
   \item{TestDirection}{
 	The direction the test statistic can be: c('Both', 'Decreasing', 'Increasing').
 }
+  \item{alpha}{
+	The alpha level used to calculate confidence intervals.   
+}
+
 }
 
 \value{
@@ -37,6 +42,8 @@ WeightList = NULL, TestDirection = "Decreasing")
   \item{Estimate}{The estimated difference between the levels.}
   \item{Std. Error}{The standard error.}
   \item{Df}{The degrees of freedom.}
+  \item{Upper CI}{The upper 1-alpha adjusted confidence interval of the estimated difference between the levels. See \code{\link[multcomp:confint.glht]{confint.glht}} for more information.}
+  \item{Lower CI}{The lower 1-alpha adjusted confidence interval of the estimated difference between the levels. See \code{\link[multcomp:confint.glht]{confint.glht}} for more information.}
   \item{t.value}{The value of the test statistic.}
   \item{p.value}{The p-value of the test statistic.}
   \item{Signif}{The significance flag where "." is a p-value > 0.05, "*" is a 0.01 < p-value <=  0.05, "**" for 0.001 <  p-value <=  0.01, and "***" for p-value <= 0.001.} 

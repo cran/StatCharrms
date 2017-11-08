@@ -15,7 +15,7 @@
 \itemize{
 \item{\bold{Package:}}{ StatCharrms}
 \item{\bold{Type:}}{Package \ Frontend}
-\item{\bold{Version:}}{1.00-00}
+\item{\bold{Version:}}{0.96-00}
 \item{\bold{Date:}}{   2016-06-20}
 \item{\bold{License:}}{   CC0 }
 }

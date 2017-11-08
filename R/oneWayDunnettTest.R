@@ -1,5 +1,5 @@
 oneWayDunnettTest <-
-function(Data,Treatment,Response,WeightList=NULL,TestDirection='Decreasing'){
+function(Data,Treatment,Response,WeightList=NULL,TestDirection='Decreasing',alpha=0.05){
 #patched in to allow for unadjusted p-values
 
 
@@ -20,8 +20,11 @@ Data$Response<-Data[ ,Response]
 AnovaTable<-aov(Response~TreatmentVar,data=Data, weight=WeightList)
 
 #Dunnett
-DunTest<-summary(glht(AnovaTable, linfct=mcp(TreatmentVar="Dunnett"),alternative=Alternative));
+LT<-glht(AnovaTable, linfct=mcp(TreatmentVar="Dunnett"),alternative=Alternative)
+CI<-confint(LT,level = 1-alpha)
+DunTest<-summary(LT);
 Df<-AnovaTable$df
+
 
 tRes<-switch (TestDirection, 
 		Decreasing=pt(DunTest$test$tstat,Df,lower.tail = TRUE),
@@ -36,13 +39,16 @@ DunTable<-as.data.frame(cbind(
 	signif(DunTest$test$coefficients,4),
 	signif(DunTest$test$sigma,4),
 	Df,
+	round(CI$confint[ ,2],4),
+	round(CI$confint[ ,3],4),
 	signif(DunTest$test$tstat,4),
 	signif(tRes,4),	
 	round(DunTest$test$pvalues,4)
+
 ))
 
 DunTable$Signif<-'.'
-colnames(DunTable)<-c('Treatment','Levels','Estimate', 'Std. Error','Df', 't.value', 'p.value','AdjP','Signif')
+colnames(DunTable)<-c('Treatment','Levels','Estimate', 'Std. Error','Df',paste0('Lower ', round(100-alpha*100,0) ,'% CI'),paste0('Upper ', round(100-alpha*100,0) ,'% CI'),'t.value', 'p.value','AdjP','Signif')
 
 #Known warning
 oldw <- getOption("warn")

@@ -371,6 +371,10 @@ MonocityTable<-Results$MonocityTable
 
 DunnsTable<-Results$DunnsTable
 
+WilliamsTableUp<-Results$WilliamsTableUp #2017-10-17
+WilliamsTableDown<-Results$WilliamsTableDown #2017-10-17
+
+
 Transform<-Results$TransformationUsed
 TestType<-Results$TestType
 
@@ -423,6 +427,16 @@ HTML(OneWayDunnetResults,row.name=FALSE,innerBorder = 1,CSSstyle='')}
 if (is.null(DunnsTable)==FALSE){
 HTML('<center><b>Dunns Test</b></center>')
 HTML(DunnsTable,row.name=FALSE,innerBorder = 1,CSSstyle='')}
+
+#HTML for Williams Test 2017-10-18
+if (is.null(WilliamsTableUp)==FALSE){
+HTML('<center><b>Williams Test for Increasing Trend</b></center>')
+HTML(WilliamsTableUp,row.name=FALSE,innerBorder = 1,CSSstyle='')}
+
+#HTML for Williams Test 2017-10-18
+if (is.null(WilliamsTableDown)==FALSE){
+HTML('<center><b>Williams Test for Decreasing Trend</b></center>')
+HTML(WilliamsTableDown,row.name=FALSE,innerBorder = 1,CSSstyle='')}
 
 #Stamp the output
 .stdEndEnv$Message<-.stampOutput(Transform,TestType)

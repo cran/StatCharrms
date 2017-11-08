@@ -10,6 +10,9 @@ responseTransform <-function(Data,ResponVar,Trans){
 
 OutData<-Data
 if (Trans=='Log+1'){Trans<-'Log1'}
+if (Trans=='Arcsin(Square_Root)'){Trans<-'Arcsin'} #2017-10-23
+
+
 
 #Apply Transform
 if (Trans != 'Rank'){

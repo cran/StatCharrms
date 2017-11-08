@@ -8,8 +8,8 @@
 	This function runs an analysis chosen through the GUI.
 }
 \usage{
-forceStdAnalysis(Data, Response, TreatmentVar, Transform, WeightsVar, 
-TimeVar, TestDirection, ReplicateVar, Test, AlphaLevel)
+	forceStdAnalysis(Data, Response, TreatmentVar, Transform, WeightsVar, 
+	TimeVar, TestDirection, ReplicateVar, Test, AlphaLevel)
 }
 
 \arguments{
@@ -41,7 +41,7 @@ TimeVar, TestDirection, ReplicateVar, Test, AlphaLevel)
 }
   \item{Test}{
 	The test being ran. Any of the following: 
-	c('RM ANOVA', 'ME ANOVA', 'Simple ANOVA', 'Weighted ANOVA', 'Jonckheere', 'Dunns', 'Dunnett') can be used.
+	c('RM ANOVA', 'ME ANOVA', 'Simple ANOVA', 'Weighted ANOVA', 'Jonckheere', 'Dunns', 'Dunnett','Williams') can be used.
 }
   \item{AlphaLevel}{
 	The alpha level used in the Jonckheere-Terpstra trend test. See \code{\link{jonckheereTerpstraTest}} for more details.
@@ -57,6 +57,7 @@ See the individual functions for information about each test.
    \item{Weighted ANOVA}{A weighted one way ANOVA see \code{\link{basicAnova}}.}
    \item{Dunns}{A Dunns test see \code{\link{dunnsTest}}.}
    \item{Dunnet}{A Dunnett's test see \code{\link{oneWayDunnettTest}}.}
+   \item{WilliamsTable}{The results from the Williams test \code{\link{williamsTest}}.}
 }
 
 \author{

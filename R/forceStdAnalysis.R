@@ -17,6 +17,9 @@ Comments<-{}
 DunnsTable<-{}
 MonocityMsg<-{}
 MonocityTable<-{}
+WilliamsTableUp<-{} #2017-10-17
+WilliamsTableDown<-{} #2017-10-17
+
 
 Alternative<-switch(TestDirection,
 Decreasing='Descending',
@@ -24,6 +27,7 @@ Increasing='Ascending',
 Both='Both'
 )
 TempData<-Data
+
 
 message(paste('\n',Response,'is being analysed'))
 #Clean numbers that are not finite
@@ -35,13 +39,13 @@ TransData<-responseTransform(TempData,Response,Transform) #Transform Data
 
 ################################################################################################################
 #Summary Table No matter what
-SummaryTable<-makeSummaryTable(TempData,TreatmentVar,Response)
+SummaryTable<-makeSummaryTable(TransData,TreatmentVar,Response,alpha = AlphaLevel)
 
 if (Test== 'RM ANOVA'){
 Path<-2
 #Wilks-levens 
 RMResponce<-runMultiGen(TransData,TreatVar=TreatmentVar,ResponVar='TransformedResponse',
-RepVar=ReplicateVar,Path=2,TimeVar=TimeVar,Alternative)
+RepVar=ReplicateVar,Path=2,TimeVar=TimeVar,Alternative,alpha=AlphaLevel)
 
 AnovaResults<-RMResponce$Anova.Table
 OneWayDunnetResults<-RMResponce$MainEffects
@@ -64,7 +68,7 @@ if (Test== 'ME ANOVA'){
 Path<-3
 #Wilks-levens 
 RMResponce<-runMultiGen(TransData,TreatVar=TreatmentVar,ResponVar='TransformedResponse',
-RepVar=ReplicateVar,Path=3,TimeVar=TimeVar,Alternative)
+RepVar=ReplicateVar,Path=3,TimeVar=TimeVar,Alternative,alpha=AlphaLevel)
 
 AnovaResults<-RMResponce$Anova.Table
 OneWayDunnetResults<-RMResponce$MainEffects
@@ -94,7 +98,7 @@ WeightsVar=AvgData$N.WEIGHT
 }
 
 AnovaResults<-basicAnova(AvgTransData,TreatmentVar,Response,WeightsVar)
-OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightsVar,TestDirection)
+OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightsVar,TestDirection,alpha=AlphaLevel)
 AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))
 Residuals<- AOV$residuals
 LeveneResults<-leveneTestSC(AvgTransData,TreatmentVar,Residuals)
@@ -121,7 +125,7 @@ AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar)
 AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
 AvgTransData<-responseTransform(AvgData,Response,Transform) #Transform Data of average
 
-OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightList=NULL,TestDirection)
+OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightList=NULL,TestDirection,alpha=AlphaLevel)
 
 AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))
 Residuals<- AOV$residuals
@@ -134,10 +138,51 @@ if (Test== 'Dunns'){
 DunnsTable<-dunnsTest(TempData,TreatmentVar,Response,TestDirection)
 }
 
+
+#2017-10-17
+if (Test== 'Williams'){
+	
+	#Test for normality needed for Williams
+	if (ReplicateVar=='Not Used'){  #Do nothing
+		AvgData<-TempData;}else{  
+		AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar) 
+	}
+	AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
+	AvgTransData<-responseTransform(AvgData,Response,Transform) #Transform Data of average
+	AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))
+	Residuals<- AOV$residuals
+	LeveneResults<-leveneTestSC(AvgTransData,TreatmentVar,Residuals)
+	WilksResults<-wilksTest(Residuals)
+
+
+	#Also display results for the test for 
+	MonocityTable<-monotonicityTest(AvgData,TreatmentVar,Response) #Test for Monotonicity set in place by OECD p.44 #142
+	
+		
+		
+	if (TestDirection=='Both'){
+		WilliamsTableUp<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'increasing')
+		WilliamsTableDown<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'decreasing')
+	}
+	if (TestDirection=='Decreasing'){
+		WilliamsTableDown<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'decreasing')
+	}
+	if (TestDirection=='Increasing'){
+		WilliamsTableUp<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'increasing')
+	}	
+	
+	
+}
+
+
 Results<-list(Response=Response,SummaryTable=SummaryTable,
 WilksResults=WilksResults,LeveneResults=LeveneResults,AnovaResults=AnovaResults,OneWayDunnetResults=OneWayDunnetResults,
 JonckheereTerpstraResults=JonckheereTerpstraResults,TransformationUsed=Transform,MonocityTable=MonocityTable,
-Comments=Comments,MonocityMsg=MonocityMsg,DunnsTable=DunnsTable)
+Comments=Comments,MonocityMsg=MonocityMsg,DunnsTable=DunnsTable,WilliamsTableUp=WilliamsTableUp,WilliamsTableDown=WilliamsTableDown)
+
+
+
+
 
 
 

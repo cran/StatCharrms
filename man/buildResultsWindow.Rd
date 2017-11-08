@@ -36,6 +36,7 @@ Each tab produces a table for every possible analysis.  See each individual func
    \item{\bold{Anova table}}{See \code{\link{basicAnova}}.}
    \item{\bold{Dunnet table}}{See \code{\link{oneWayDunnettTest}}.}
    \item{\bold{Dunns table}}{See \code{\link{dunnsTest}}.}
+   \item{\bold{Williams Table}}{The results from the Williams test \code{\link{williamsTest}}.}
   
   
  In addition to the two save buttons shared by every tab, the graph tab has the additional button of:

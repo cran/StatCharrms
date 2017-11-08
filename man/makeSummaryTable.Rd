@@ -6,10 +6,11 @@
 }
 \description{
 	Generates a table of standard summary statistical values for each treatment level of a response from a data set. 
-	This function will always be called when standard numerical endpoints are analyzed.  
+	This function will always be called when standard numerical endpoints are analysed.  
 }
 \usage{
-makeSummaryTable(Data, Treatment, Response)
+makeSummaryTable(Data, Treatment, Response, 
+ alpha = 0.05)
 }
 
 \arguments{
@@ -22,11 +23,15 @@ makeSummaryTable(Data, Treatment, Response)
   \item{Response}{
 	The name (as a string) of the endpoint. 
 }
+  \item{alpha}{
+	The alpha level used to calculate confidence intervals.   
+}
+
 }
 
 
 \value{
-	A data set containing the mean, median, standard deviation, and standard error for each treatment level of the response.
+	A data set containing the mean, median, standard deviation, standard error, and confidence intervals for each treatment level of the response.
 }
 
 \author{

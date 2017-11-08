@@ -114,7 +114,8 @@ NormalTestLevene=FALSE
 
 #If Normality  or Homogeneity Fails
 if (NormalTestWiks==FALSE | NormalTestLevene==FALSE){    
-DunnsTable<-dunnsTest(TempData,TreatmentVar,Response,TestDirection)
+	DunnsTable<-dunnsTest(TempData,TreatmentVar,Response,TestDirection)
+	OneWayDunnetResults<-{}
 }
 
 #Clean up LeveneResults and WilksResults

@@ -59,7 +59,9 @@ for (i in .stdEndEnv$EndPointVar){if (is.null(Results[[i]])==FALSE){  #Add is.nu
 	DunnsExpand=TRUE
 	DunnetExpand=FALSE
 	JTExpand=FALSE
-
+	WilliamsExpand=TRUE
+	
+	
 	if (is.null(Results[[i]]$DunnsTable)==TRUE){
 		DunnetExpand=TRUE
 		if(is.null(Results[[i]]$OneWayDunnetResults)==TRUE){
@@ -68,7 +70,7 @@ for (i in .stdEndEnv$EndPointVar){if (is.null(Results[[i]])==FALSE){  #Add is.nu
 	}
 
 	SummaryLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-	ResultsSummaryLab<-glabel('Summary table ',container=SummaryLabBox,where='center') #Summary Table
+	ResultsSummaryLab<-glabel('Summary Table ',container=SummaryLabBox,where='center') #Summary Table
 	ResultsSummaryGrid<-gtable(Results[[i]]$SummaryTable, container=ResultsMaingroup,where='center')
 	size(ResultsSummaryGrid)<-c(1,110)
 	#Mono-Table
@@ -81,7 +83,7 @@ for (i in .stdEndEnv$EndPointVar){if (is.null(Results[[i]])==FALSE){  #Add is.nu
 	#Jonckheere-Terpstra
 	if (is.null(Results[[i]]$JonckheereTerpstraResults)==FALSE){
 		JonckheereLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsJonckheereLab<-glabel('Jonckheere-Terpstra table ',container=JonckheereLabBox,where='center') #Jonckheere-Terpstra Table
+		ResultsJonckheereLab<-glabel('Jonckheere-Terpstra Table ',container=JonckheereLabBox,where='center') #Jonckheere-Terpstra Table
 		ResultsJonckheereGrid<-gtable(Results[[i]]$JonckheereTerpstraResults, container=ResultsMaingroup,where='center',expand=JTExpand)
 		size(ResultsJonckheereGrid)<-c(1,90)
 	}
@@ -89,19 +91,19 @@ for (i in .stdEndEnv$EndPointVar){if (is.null(Results[[i]])==FALSE){  #Add is.nu
 	#This will check for the existence of a table and print it if it exists
 	if (is.null(Results[[i]]$WilksResults)==FALSE){
 		WilksLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsWilksLab<-glabel('Wilks table ',container=WilksLabBox,where='center') #Wilks Table
+		ResultsWilksLab<-glabel('Wilks Table ',container=WilksLabBox,where='center') #Wilks Table
 		ResultsWilksGrid<-gtable(Results[[i]]$WilksResults, container=ResultsMaingroup,where='center')
 		size(ResultsWilksGrid)<-c(1,28)
 	}
 	if (is.null(Results[[i]]$LeveneResults)==FALSE){
 		LeveneLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsLeveneLab<-glabel('Levene table ',container=LeveneLabBox,where='center') #Leven Table
+		ResultsLeveneLab<-glabel('Levene Table ',container=LeveneLabBox,where='center') #Leven Table
 		ResultsLeveneGrid<-gtable(Results[[i]]$LeveneResults, container=ResultsMaingroup,where='center')
 		size(ResultsLeveneGrid)<-c(1,28)
 	}
 	if (is.null(Results[[i]]$AnovaResults)==FALSE){
 		AnovaLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsAnovaLab<-glabel('Anova table ',container=AnovaLabBox,where='center') #Anova Table
+		ResultsAnovaLab<-glabel('Anova Table ',container=AnovaLabBox,where='center') #Anova Table
 		AnovaDisplay<-cbind(rownames(Results[[i]]$AnovaResults),Results[[i]]$AnovaResults)
 		colnames(AnovaDisplay)[1]<-''
 		ResultsAnovaGrid<-gtable(AnovaDisplay, container=ResultsMaingroup,where='center')
@@ -109,19 +111,31 @@ for (i in .stdEndEnv$EndPointVar){if (is.null(Results[[i]])==FALSE){  #Add is.nu
 	}
 	if (is.null(Results[[i]]$OneWayDunnetResults)==FALSE){
 		DunnetLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsDunnetLab<-glabel('Dunnett table ',container=DunnetLabBox,where='center') #Dunnet Table
+		ResultsDunnetLab<-glabel('Dunnett Table ',container=DunnetLabBox,where='center') #Dunnet Table
 		ResultsDunnetGrid<-gtable(Results[[i]]$OneWayDunnetResults, container=ResultsMaingroup,where='center',expand=DunnetExpand)
 		size(ResultsDunnetGrid)<-c(1,90)
 	}
 	if (is.null(Results[[i]]$DunnsTable)==FALSE){
 		DunnsLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
-		ResultsDunnstLab<-glabel('Dunns table ',container=DunnsLabBox,where='center') #Dunns Table
+		ResultsDunnstLab<-glabel('Dunns Table ',container=DunnsLabBox,where='center') #Dunns Table
 		ResultsDunnsGrid<-gtable(Results[[i]]$DunnsTable, container=ResultsMaingroup,where='center',expand=DunnsExpand)
+	}
+	
 	#size(ResultsDunnsGrid)<-c(1,90)
-}
-
-
-
+	#Added Williams Table 2017-10-17
+	if (is.null(Results[[i]]$WilliamsTableUp)==FALSE){
+		Expand=is.null(Results[[i]]$WilliamsTableDown)==TRUE
+		
+		WilliamsUpLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
+		ResultsWilliamsUpLab<-glabel('Williams Table for Increasing Trend ',container=WilliamsUpLabBox,where='center') #Williams Table
+		ResultsWilliamsUpGrid<-gtable(Results[[i]]$WilliamsTableUp, container=ResultsMaingroup,where='center',expand=Expand)
+	}
+	if (is.null(Results[[i]]$WilliamsTableDown)==FALSE){
+		WilliamsDownLabBox<-gframe(horizontal = FALSE,container=ResultsMaingroup)
+		ResultsWilliamsDownLab<-glabel('Williams Table for Decreasing Trend',container=WilliamsDownLabBox,where='center') #Williams Table
+		ResultsWilliamsDownGrid<-gtable(Results[[i]]$WilliamsTableDown, container=ResultsMaingroup,where='center',expand=TRUE)
+	}
+	
 }}
 
 #------------------------------------------------------------------------------------------------------------------------------------

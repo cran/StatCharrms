@@ -53,15 +53,19 @@ Jonckheere, A. R. (1954). A distribution-free k-sample test against ordered alte
 }
 
 \examples{
+	## Not run: 
 	#Data 
 		data(lengthWeightData)
 	#Subset the data
 		SubData<-lengthWeightData[lengthWeightData$Age=='16 week', ] 
 		SubData<-SubData[SubData$Generation=='F1', ]
 		SubData<-SubData[SubData$SEX=='M', ]
-	#Run 
+	#Not Run 
+	\dontrun{
 		jonckheereTerpstraTest(Data=SubData, Treatment='Treatment', 
-			Response='WEIGHT', TestDirection='Both', AlphaLevel=0.05)	
+			Response='WEIGHT', TestDirection='Both', AlphaLevel=0.05)
+	}
+	## End(Not run)		
 }
 
 

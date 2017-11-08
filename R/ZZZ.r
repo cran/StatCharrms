@@ -18,11 +18,11 @@
 #' @import coxme
 #' @import RSCABS
 #' @import car
-#' @importFrom stats var aov qqnorm qqline interaction.plot complete.cases pnorm median pt qnorm xtabs anova shapiro.test summary.lm contrasts<-
+#' @importFrom stats var aov qqnorm qqline interaction.plot complete.cases pnorm median pt confint qnorm xtabs anova shapiro.test qt summary.lm contrasts<-
 #' @importFrom grDevices pdf dev.off dev.set dev.prev
 #' @importFrom graphics plot legend 
 #' @importFrom methods is
-#' @importFrom utils write.table citation data
+#' @importFrom utils write.table citation data sessionInfo
 }
 
 

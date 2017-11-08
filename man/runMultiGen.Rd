@@ -10,7 +10,7 @@
 \usage{
 runMultiGen(Data, TreatVar = "", ResponVar = "", 
 RepVar = "Not Used", TimeVar = "Not Used", 
-Path, TestDirection = "Descending")
+Path, TestDirection = "Descending",alpha=0.05)
 }
 
 \arguments{
@@ -35,6 +35,10 @@ Path, TestDirection = "Descending")
   \item{TestDirection}{
 	Indicates the test direction. This can be c('Both', 'Descending', 'Ascending').
 }
+  \item{alpha}{
+	Alpha level used in calculating confidence intervals.
+}
+
 }
 \details{
 	This is mostly a wrapper function for \code{\link[nlme:nlme]{nlme}} from the nlme package and \code{\link[multcomp:glht]{glht}} from the multcomp package.   

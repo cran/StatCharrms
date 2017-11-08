@@ -10,12 +10,14 @@ Data[ ,Treatment]<-as.factor(Data[ ,Treatment])
 #Basic Test 
 #Initialize variables for testing     
 JTInc<-{};JTDec<-{} ;JTInc$p.value<-1; JTDec$p.value<-1
+
+
 if (TestDirection=='Increasing' | TestDirection=='Both'){  #Increasing Test
-JTInc<-jonckheere.test(Data[ ,Response],as.ordered(Data[ ,Treatment]),nperm=1000,alternative='increasing')
+	JTInc<-jonckheere.test(Data[ ,Response],as.ordered(Data[ ,Treatment]),nperm=10000,alternative='increasing')
 }
 if (TestDirection=='Decreasing' | TestDirection=='Both'){ #Decreasing Test
-JTDec<-jonckheere.test(Data[ ,Response],as.ordered(Data[ ,Treatment]),nperm=1000,alternative='decreasing')
-JTInc$statistic<-JTDec$statistic
+	JTDec<-jonckheere.test(Data[ ,Response],as.ordered(Data[ ,Treatment]),nperm=10000,alternative='decreasing')
+	JTInc$statistic<-JTDec$statistic
 }
 
 

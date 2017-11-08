@@ -1,5 +1,5 @@
 runMultiGen <-
-function(Data,TreatVar='',ResponVar='',RepVar='Not Used',TimeVar='Not Used',Path,TestDirection='Descending'){
+function(Data,TreatVar='',ResponVar='',RepVar='Not Used',TimeVar='Not Used',Path,TestDirection='Descending',alpha=0.05){
 #' @export
 #TreatVar is the Treatment Variable
 #ResponVar is the Response Variable
@@ -114,9 +114,13 @@ if (Path==2){
 	} 
 	 
 	Group.mcp<-mcp('Group'=ConstGroup,interaction_average = FALSE, covariate_average = FALSE)
-	GroupComp<-summary(glht(Lmm,linfct=Group.mcp,alternative=Alternative))
-
-	GroupCom<-summary(glht(Lmm,linfct=mcp(Group='Dunnett'),alternative=Alternative))
+	
+	LT1<-glht(Lmm,linfct=Group.mcp,alternative=Alternative)
+	GroupComp<-summary(LT1)
+	GCI<-confint(LT1,level = 1-alpha)
+	
+	LT2<-glht(Lmm,linfct=mcp(Group='Dunnett'),alternative=Alternative)
+	GroupCom<-summary(LT2)
 	Df= anova(Lmm)[2,2]
 
 	p.value<-switch (TestDirection, 
@@ -124,14 +128,18 @@ if (Path==2){
 		Ascending=pt(GroupComp$test$tstat,Df,lower.tail = FALSE),
 		Both=pt(abs(GroupComp$test$tstat),Df,lower.tail = FALSE)*2
 	)
-	GroupEffects<-cbind(TreatVar,
+	GroupEffects<-cbind(
+		TreatVar,
 		rownames(GroupCom$linfct),
 		round(GroupComp$test$coefficients,4),
 		round(GroupComp$test$sigma,4),
 		Df,
+		round(GCI$confint[ ,2],4),
+	    round(GCI$confint[ ,3],4),
 		round(GroupComp$test$tstat,4),
 		round(p.value,4),
-		round(GroupComp$test$pvalues,4),'.'
+		round(GroupComp$test$pvalues,4),
+		'.'
 	)
 
 
@@ -140,13 +148,13 @@ if (Path==2){
 	#GroupEffects[which(GroupComp$test$pvalues<=0.05),7]='**'
 	#}
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.05),9]='*'
+		GroupEffects[which(p.value<=0.05),11]='*'
 	}
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.001),9]='**'
+		GroupEffects[which(p.value<=0.001),11]='**'
 	}
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.0001),9]='***'
+		GroupEffects[which(p.value<=0.0001),11]='***'
 	}
 
 
@@ -169,7 +177,13 @@ if (Path==2){
 	} 
 
 	Time.mcp<-mcp('Time'=ConstTime,interaction_average = FALSE, covariate_average = FALSE)
-	TimeComp<-summary(glht(Lmm,linfct =Time.mcp)) 
+	
+	TLT<-glht(Lmm,linfct =Time.mcp)
+	TCI<-confint(TLT,level = 1-alpha)
+	
+	TimeComp<-summary(TLT) 
+	
+	
 	p.value<-switch (TestDirection, 
 		Descending=pt(TimeComp$test$tstat,Df,lower.tail = TRUE),
 		 Ascending=pt(TimeComp$test$tstat,Df,lower.tail = FALSE),
@@ -182,13 +196,17 @@ if (Path==2){
 		round(TimeComp$test$coefficients,4),
 		round(TimeComp$test$sigma,4),
 		Df,
+		round(TCI$confint[ ,2],4),
+	    round(TCI$confint[ ,3],4),
 		round(TimeComp$test$tstat,4),
-		round(p.value,4),'.','.'
+		round(p.value,4),
+		'.',
+		'.'
 	)
 
 
 	if (length(which(p.value<=0.05))>0){
-		TimeEffects[which(p.value<=0.05),9]='**'
+		TimeEffects[which(p.value<=0.05),11]='**'
 	}
 
 
@@ -199,24 +217,30 @@ if (Path==2){
 	colnames(MainEffects)[2]<-'Levels'
 	colnames(MainEffects)[3]<-'Estimate'
 	colnames(MainEffects)[4]<-'StdErr'
-	colnames(MainEffects)[5]<-'T-Value'
-	colnames(MainEffects)[7]<-'P-Value'
-	colnames(MainEffects)[8]<-'AdjP'
-	colnames(MainEffects)[9]<-'Sig'
+	colnames(MainEffects)[5]<-'DF'
+	colnames(MainEffects)[6]<-paste0('Lower ', round(100-alpha*100,0) ,'% CI')
+	colnames(MainEffects)[7]<-paste0('Upper ', round(100-alpha*100,0) ,'% CI')
+	colnames(MainEffects)[8]<-'T-Value'
+	colnames(MainEffects)[9]<-'P-Value'
+	colnames(MainEffects)[10]<-'AdjP'
+	colnames(MainEffects)[11]<-'Sig'
 
-	#Clean Output
-	if(length(which(as.numeric(MainEffects[ ,7])>=1)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,7])>=1),7]<-'1'
+
+
+		#Clean Output
+	if(length(which(as.numeric(MainEffects[ ,9])>=1)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,9])>=1),9]<-'1'
 	}
-	if(length(which(as.numeric(MainEffects[ ,8])>=1)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,8])>=1),8]<-'1'
+	if(length(which(as.numeric(MainEffects[ ,10])>=1)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,10])>=1),10]<-'1'
 	}
-	if(length(which(as.numeric(MainEffects[ ,7])<0.0001)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,7])<0.0001),7]<-'<1e-4'
+	if(length(which(as.numeric(MainEffects[ ,9])<0.0001)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,9])<0.0001),9]<-'<1e-4'
 	}
-	if(length(which(as.numeric(MainEffects[ ,8])<0.0001)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,8])<0.0001),8]<-'<1e-4'
+	if(length(which(as.numeric(MainEffects[ ,10])<0.0001)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,10])<0.0001),10]<-'<1e-4'
 	}
+
 
 	AnovaTable<-cbind(row.names(AnovaTable), AnovaTable)
 		colnames(AnovaTable)[1]<-"Effect" 
@@ -281,8 +305,11 @@ if (Path==3){
 		row.names(ConstGroup)[i-1]<-paste(levels(Data$Group)[i],'-',levels(Data$Group)[1])
 	} 
 	 
+	 
 	Group.mcp<-mcp('Group'=ConstGroup,interaction_average = FALSE, covariate_average = FALSE)
-	GroupComp<-summary(glht(Lmm,linfct=Group.mcp,alternative=Alternative))
+	GLT<-glht(Lmm,linfct=Group.mcp,alternative=Alternative)
+	GroupComp<-summary(GLT)
+	GCI<-confint(GLT,level = 1-alpha)
 
 	GroupCom<-summary(glht(Lmm,linfct=mcp(Group='Dunnett'),alternative=Alternative))
 		p.value<-switch (TestDirection, 
@@ -297,6 +324,8 @@ if (Path==3){
 		round(GroupComp$test$coefficients,4),
 		round(GroupComp$test$sigma,4),
 		Df,
+		round(GCI$confint[ ,2],4),
+		round(GCI$confint[ ,3],4),
 		round(GroupComp$test$tstat,4),
 		round(p.value,4),
 		round(GroupComp$test$pvalues,4),
@@ -305,13 +334,13 @@ if (Path==3){
 
 
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(GroupComp$test$pvalues<=0.05),9]='*'
+		GroupEffects[which(GroupComp$test$pvalues<=0.05),11]='*'
 	}
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(GroupComp$test$pvalues<=0.001),9]='**'
+		GroupEffects[which(GroupComp$test$pvalues<=0.001),11]='**'
 	}
 	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(GroupComp$test$pvalues<=0.0001),9]='***'
+		GroupEffects[which(GroupComp$test$pvalues<=0.0001),11]='***'
 	}
 
 	MainEffects<-GroupEffects
@@ -319,24 +348,29 @@ if (Path==3){
 	colnames(MainEffects)[2]<-'Levels'
 	colnames(MainEffects)[3]<-'Estimate'
 	colnames(MainEffects)[4]<-'StdErr'
-	colnames(MainEffects)[6]<-'T-Value'
-	colnames(MainEffects)[7]<-'P-Value'
-	colnames(MainEffects)[8]<-'AdjP'
-	colnames(MainEffects)[9]<-'Sig'
+	colnames(MainEffects)[5]<-'DF'
+	colnames(MainEffects)[6]<-paste0('Lower ', round(100-alpha*100,0) ,'% CI')
+	colnames(MainEffects)[7]<-paste0('Upper ', round(100-alpha*100,0) ,'% CI')
+	colnames(MainEffects)[8]<-'T-Value'
+	colnames(MainEffects)[9]<-'P-Value'
+	colnames(MainEffects)[10]<-'AdjP'
+	colnames(MainEffects)[11]<-'Sig'
+
+
 
 
 	#Clean Output
-	if(length(which(as.numeric(MainEffects[ ,7])>=1)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,7])>=1),7]<-'1'
+	if(length(which(as.numeric(MainEffects[ ,9])>=1)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,9])>=1),9]<-'1'
 	}
-	if(length(which(as.numeric(MainEffects[ ,8])>=1)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,8])>=1),8]<-'1'
+	if(length(which(as.numeric(MainEffects[ ,10])>=1)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,10])>=1),10]<-'1'
 	}
-	if(length(which(as.numeric(MainEffects[ ,7])<0.0001)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,7])<0.0001),7]<-'<1e-4'
+	if(length(which(as.numeric(MainEffects[ ,9])<0.0001)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,9])<0.0001),9]<-'<1e-4'
 	}
-	if(length(which(as.numeric(MainEffects[ ,8])<0.0001)>0)){
-		MainEffects[which(as.numeric(MainEffects[ ,8])<0.0001),8]<-'<1e-4'
+	if(length(which(as.numeric(MainEffects[ ,10])<0.0001)>0)){
+		MainEffects[which(as.numeric(MainEffects[ ,10])<0.0001),10]<-'<1e-4'
 	}
 
 	AnovaTable<-cbind(row.names(AnovaTable), AnovaTable)
@@ -353,7 +387,6 @@ if (Path==3){
 	}
 	ShapiroTest<-shapiro.test(Residuals) #Test for norm
 	LeveneTest<-leveneTest(Residuals~Data$Group) #Test for equal Variance
-
 
 	Out=list('Anova.Table'=AnovaTable,'MainEffects'=MainEffects,
 	'LeveneTest'=LeveneTest,'FreqTable'=FreqTable,'Lmm'=Lmm,'ShapiroTest'=ShapiroTest)
