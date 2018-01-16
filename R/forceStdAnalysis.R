@@ -96,10 +96,11 @@ if (Test== 'Weighted ANOVA'){
 WeightsVar=AvgData$N.WEIGHT
 
 }
+#JS 2018-1-4 fixed the issue with the simple ANOVA test not using transdata
 
-AnovaResults<-basicAnova(AvgTransData,TreatmentVar,Response,WeightsVar)
-OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightsVar,TestDirection,alpha=AlphaLevel)
-AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))
+AnovaResults<-basicAnova(AvgTransData,TreatmentVar,'TransformedResponse',WeightsVar)
+OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,'TransformedResponse',WeightsVar,TestDirection,alpha=AlphaLevel)
+AOV<-aov(AvgTransData[ ,'TransformedResponse']~as.factor(AvgTransData[ ,TreatmentVar]))
 Residuals<- AOV$residuals
 LeveneResults<-leveneTestSC(AvgTransData,TreatmentVar,Residuals)
 WilksResults<-wilksTest(Residuals)
@@ -125,9 +126,11 @@ AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar)
 AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
 AvgTransData<-responseTransform(AvgData,Response,Transform) #Transform Data of average
 
-OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,Response,WeightList=NULL,TestDirection,alpha=AlphaLevel)
+#JS 2018-1-4 fixed the issue with the Dunnett test not using transdata
 
-AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))
+	
+OneWayDunnetResults<-oneWayDunnettTest(AvgTransData,TreatmentVar,'TransformedResponse',WeightList=NULL,TestDirection,alpha=AlphaLevel)
+AOV<-aov(AvgTransData[ ,'TransformedResponse']~as.factor(AvgTransData[ ,TreatmentVar]))
 Residuals<- AOV$residuals
 LeveneResults<-leveneTestSC(AvgTransData,TreatmentVar,Residuals)
 WilksResults<-wilksTest(Residuals)
@@ -147,6 +150,8 @@ if (Test== 'Williams'){
 		AvgData<-TempData;}else{  
 		AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar) 
 	}
+	
+	
 	AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
 	AvgTransData<-responseTransform(AvgData,Response,Transform) #Transform Data of average
 	AOV<-aov(AvgTransData[ ,Response]~as.factor(AvgTransData[ ,TreatmentVar]))

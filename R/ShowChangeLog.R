@@ -3,7 +3,11 @@ function(){
 #' @export
 
 
-Changes<-"---------------------------------V0.90.6--------------------------------------
+Changes<-"---------------------------------V0.90.7--------------------------------------
+Fixed a bug that ignored the data transformation when the Dunnett test or a simple ANOVA was 
+explicitly selected as the test type.
+
+---------------------------------V0.90.6--------------------------------------
 Change the display of the Arcsin transformation to display properly display Arcsin(Square_Root)
 Added confidence intervals to both the Dunnett test and summary table
 Added Williams test

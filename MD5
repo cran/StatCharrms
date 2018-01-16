@@ -1,11 +1,11 @@
-eda2c0c764f732cb3161466432d36c35 *DESCRIPTION
+aea067880a4e549f64c854934f0ae57a *DESCRIPTION
 ed9a7a2b70e963bccd0fddf23f3690d5 *INDEX
 91233e960adb6fda9d1ee642baa3e151 *NAMESPACE
 c7689c9ebb8067e51afa3fc294f96d34 *R/FindFormat.R
 f1b6469b3f1b0cb1e742be525c34370a *R/ReadMeFile.R
 f456241317dc62dc1cae2acaf570d686 *R/Reference.R
-301a2cfbd961b37d29cc6d469c100e56 *R/Run.StatCharrms.R
-3726f9696c5004099712e657568b6238 *R/ShowChangeLog.R
+d6b4c171d8d11bf08bfdf236ef3f8adf *R/Run.StatCharrms.R
+e360b779c6e1f7214b210a1c4414c779 *R/ShowChangeLog.R
 deb42d1439b3d0e160ff4f1489791846 *R/StatCharrms-internal.R
 e64441e2a4dad64748bc12fd2227a898 *R/StdEndMain.R
 ec097fe0204c8175d3ba54d397c32cb0 *R/Time2EventMain.R
@@ -22,7 +22,7 @@ b20756a85f0d407def60680c10f784f1 *R/buildResultsWindow.te.R
 9dc5d526139e9e6fc2ea9bf9846514da *R/cleanString.R
 469a5ffcc0e930afc6a76f5e6ff93737 *R/date2Numeric.R
 231c40a55092ca8d4ce874028273b7af *R/dunnsTest.R
-2c2d914300aa63d5ef1ad90c11049418 *R/forceStdAnalysis.R
+417bcaf64ae786973b0bc120b48df73a *R/forceStdAnalysis.R
 b1bdc3ac329e200c77e03d1e3dfd6dd9 *R/generateExamples.R
 77807f852d56597c5163af5cce414e45 *R/getFileName.R
 9c9aa42a860b7afdeaffb4eb49f29ffb *R/getLineContrast.R
@@ -46,8 +46,8 @@ dcafbe9ddd2ed71b2351468750b39ffe *data/eventTimeData.rda
 5f0b9ba3c45c21fdfda95b85bbd20492 *data/lengthWeightData.rda
 5bd43731ad4eb48589ae277e871a841f *data/williamsTestLookUpTable.rda
 e830b72fd68847015db44e0c2d1ee519 *inst/CITATION
-ea2fcd33abc114d3e31ad96dbdcec1d8 *inst/doc/StatCharrms.Rnw
-c7b3bcb2430b06a777c77d6120123082 *inst/doc/StatCharrms.pdf
+ded5ff730867dcdff5759f1dc5316f75 *inst/doc/StatCharrms.Rnw
+058f1eb0e8602f6bb25ffa4d6a4419a7 *inst/doc/StatCharrms.pdf
 24cf7ed33cbe6792976022ef6318f580 *man/FindFormat.Rd
 646ebe42018f891879100d6590622022 *man/ReadMeFile.Rd
 df3811823cd345546575ca077c23fc1f *man/Reference.Rd
@@ -107,8 +107,8 @@ ebce679c7c9e459f2937873b959dfc82 *vignettes/StandardAnl5-New.png
 7129e0989ee3a1b7ecc2d6400478f604 *vignettes/StandardAnl6-n.png
 2f9b95e1caa59cc151e93e38703d5dbf *vignettes/StandardAnl7-n.png
 a6f6387b6980ed7ff036e7aa5ce8f16e *vignettes/StandardAnl7.png
-ea2fcd33abc114d3e31ad96dbdcec1d8 *vignettes/StatCharrms.Rnw
-ea2fcd33abc114d3e31ad96dbdcec1d8 *vignettes/StatCharrms.tex
+ded5ff730867dcdff5759f1dc5316f75 *vignettes/StatCharrms.Rnw
+ded5ff730867dcdff5759f1dc5316f75 *vignettes/StatCharrms.tex
 ad63bd36c14c605e4115c5f626277043 *vignettes/Time2Event1.png
 2518e90c4864becfbadd5f0410557ac6 *vignettes/Time2Event2.png
 da94643444c34c0f367beb8471ae8208 *vignettes/Time2Event3.png

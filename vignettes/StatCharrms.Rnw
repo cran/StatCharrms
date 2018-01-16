@@ -348,7 +348,7 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 	
 \label{subsec:OtherEndpointsSpec}
 \subsection*{Other Endpoints Specification Tab}
-\addcontentsline{toc}{subsection}{Other Endpoints Specification Tab}}
+\addcontentsline{toc}{subsection}{Other Endpoints Specification Tab}
 	
 \hypertarget{fig:DataSpecTab}{} 
 \begin{center}
@@ -452,7 +452,7 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 	
 \label{subsec:OtherEndpointsResults}
 \subsection*{Other Endpoints Results}
-\addcontentsline{toc}{subsection}{Other Endpoints Results}}
+\addcontentsline{toc}{subsection}{Other Endpoints Results}
 	
 
 \begin{center}
@@ -482,8 +482,8 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 			\item \textbf{Median}: The median of the response for the level of the treatment variable.
 			\item \textbf{Std\_Dev}: The standard deviation of the response for the level of the treatment variable.
 			\item \textbf{Std\_Error}: The standard error of the response for the level of the treatment variable.
-			\item \textbf{Lower.##..CI}: The lower 1-alpha percent (defaults to 95 percent) confidence interval of the mean value of the response for the treatment level. 
-			\item \textbf{Upper.##..CI}: The upper 1-alpha percent (defaults to 95 percent) confidence interval of the mean value of the response for the treatment level. 
+			\item \textbf{Lower.\#\#..CI}: The lower 1-alpha percent (defaults to 95 percent) confidence interval of the mean value of the response for the treatment level. 
+			\item \textbf{Upper.\#\#..CI}: The upper 1-alpha percent (defaults to 95 percent) confidence interval of the mean value of the response for the treatment level. 
 		\end{itemize}
 		
 	\item[\begingroup\color{red}6:\endgroup] The rest of the tables depends on which analyses were ran.  The two tables 
@@ -613,8 +613,8 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 					\item \textbf{Estimate}: The estimated difference in transformed means between the levels.  
 					\item \textbf{StdErr}: The standard error of the \textbf{estimate}.
 					\item \textbf{Df}: The degrees of freedom.  
-					\item \textbf{Lower.##..CI}: The lower 1-alpha percent (defaults to 95 percent) confidence interval of the size of the \textbf{Estimate} adjusted for multiple comparisons.
-					\item \textbf{Upper.##..CI}: The upper 1-alpha percent (defaults to 95 percent) confidence interval of the size of the \textbf{Estimate} adjusted for multiple comparisons.
+					\item \textbf{Lower.\#\#..CI}: The lower 1-alpha percent (defaults to 95 percent) confidence interval of the size of the \textbf{Estimate} adjusted for multiple comparisons.
+					\item \textbf{Upper.\#\#..CI}: The upper 1-alpha percent (defaults to 95 percent) confidence interval of the size of the \textbf{Estimate} adjusted for multiple comparisons.
 					\item \textbf{T.Value}: The values of the student t statistic.
 					\item \textbf{P.Value}:	The p\textendash{}value associated with the test statistic.
 					\item \textbf{AdjP}:	The p\textendash{}value from the Dunnett's test. 
