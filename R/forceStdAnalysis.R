@@ -39,7 +39,7 @@ TransData<-responseTransform(TempData,Response,Transform) #Transform Data
 
 ################################################################################################################
 #Summary Table No matter what
-SummaryTable<-makeSummaryTable(TransData,TreatmentVar,Response,alpha = AlphaLevel)
+SummaryTable<-makeSummaryTable(TransData,TreatmentVar,Response,alpha = AlphaLevel,ReplicateVar)
 
 if (Test== 'RM ANOVA'){
 Path<-2

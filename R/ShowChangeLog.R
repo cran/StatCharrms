@@ -3,7 +3,13 @@ function(){
 #' @export
 
 
-Changes<-"---------------------------------V0.90.7--------------------------------------
+Changes<-"---------------------------------V0.90.8--------------------------------------
+Fixed bug that would cause StatCharrms to sometimes ignore sub setting on generation.
+StatCharrms will now properly excluded the excluded times.
+Added output that now shows the estimated median time to effect.
+Added the mean (of replicate means) to the summary table.
+
+---------------------------------V0.90.7--------------------------------------
 Fixed a bug that ignored the data transformation when the Dunnett test or a simple ANOVA was 
 explicitly selected as the test type.
 

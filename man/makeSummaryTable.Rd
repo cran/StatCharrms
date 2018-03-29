@@ -10,7 +10,7 @@
 }
 \usage{
 makeSummaryTable(Data, Treatment, Response, 
- alpha = 0.05)
+ alpha = 0.05, Replicate = NULL)
 }
 
 \arguments{
@@ -26,12 +26,16 @@ makeSummaryTable(Data, Treatment, Response,
   \item{alpha}{
 	The alpha level used to calculate confidence intervals.   
 }
+  \item{Replicate}{
+	The name (as a string) of the replicate variable.   
+}
 
 }
 
 
 \value{
 	A data set containing the mean, median, standard deviation, standard error, and confidence intervals for each treatment level of the response.
+	If a replicate variable is supplied, the output will also contain the mean of the replicate means and the number of replicates.  
 }
 
 \author{

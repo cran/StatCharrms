@@ -487,6 +487,21 @@ if (is.null(EffectsTable)==FALSE){
 HTML('<center><b>Main Effects Table</b></center>')
 HTML(EffectsTable ,row.name=FALSE,innerBorder = 1,CSSstyle='')}
 
+#HTML for Main Effects Results
+MedianTable<-as.data.frame(Results$MedianTable)
+
+
+if (is.null(MedianTable)==FALSE){
+	if (sum(is.na(MedianTable)) > 0){
+		NAs<-which(is.na(MedianTable)==TRUE,arr.ind = TRUE)
+		MedianTable[NAs]<-'-'
+	}
+	HTML('<center><b>Median Time to Effect with 95% CI</b></center>')
+	HTML(MedianTable ,row.name=FALSE,innerBorder = 1,CSSstyle='')
+}
+
+
+
 #Stamp the output
 .stampOutput.te()
 
@@ -609,7 +624,7 @@ if (identical(.stdEndEnv$ReplicateVar, 'Not Used')==FALSE){
 
 
 #Apply Subsets
-if(identical(.stdEndEnv$GenderVar,'Not Used')==FALSE){
+if(identical(.stdEndEnv$GenerationVal,'Not Used')==FALSE){ #
 .stdEndEnv$UseData<-subset(.stdEndEnv$UseData,.stdEndEnv$UseData[ ,.stdEndEnv$GenerationVar] == .stdEndEnv$GenerationVal)
 }
 
@@ -629,6 +644,10 @@ if (nlevels(.stdEndEnv$UseData[ ,.stdEndEnv$ReplicateVar]) == dim(.stdEndEnv$Use
 }
 }
 
+#Exclude times 2018-3-20
+if (length(.stdEndEnv$TimeExcludeVal)>0 & identical(.stdEndEnv$TimeExcludeVal, 'Not Used')==FALSE){
+	.stdEndEnv$UseData<-.stdEndEnv$UseData[is.element(.stdEndEnv$UseData[ ,.stdEndEnv$TimeVar],.stdEndEnv$TimeExcludeVal)==FALSE, ]	#only times that are not excluded
+}
 
 .stdEndEnv$DataSub<-.stdEndEnv$UseData #DataSub is used to dynamically change the time interval for graphing 
 
@@ -808,7 +827,6 @@ dev.off()
 }
 
 
-
 ##################################################################################
 #Length Weight
 LWDir=paste(Folder,'\\Length - Weight Example\\Results',sep='')
@@ -849,7 +867,7 @@ if (identical(.stdEndEnv$ReplicateVar, 'Not Used')==FALSE){
 
 
 #Apply Subsets
-if(identical(.stdEndEnv$GenderVar,'Not Used')==FALSE){
+if(identical(.stdEndEnv$GenerationVal,'Not Used')==FALSE){
 .stdEndEnv$UseData<-subset(.stdEndEnv$UseData,.stdEndEnv$UseData[ ,.stdEndEnv$GenerationVar] == .stdEndEnv$GenerationVal)
 }
 

@@ -67,7 +67,7 @@ TransData<-TransData[-{which(is.finite(TransData[ ,'TransformedResponse'])==FALS
 }
 
 #Summary Table No matter what
-SummaryTable<-makeSummaryTable(TransData,TreatmentVar,Response)
+SummaryTable<-makeSummaryTable(TransData,TreatmentVar,Response,alpha = AlphaLevel,ReplicateVar)
 
 if (UseJT==TRUE){ #End the loop Do not for the Variable do not do any more analyses 
 Results<-list(Response=Response,SummaryTable=SummaryTable,

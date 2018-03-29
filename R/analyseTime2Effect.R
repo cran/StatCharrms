@@ -2,13 +2,15 @@ analyseTime2Effect <-
 function(Data,StatusVar,TimeVar,TreatmentVar,ReplicateVar){
 #' @export
 #Runs the CoxMe for time to effect 
-#Data: data set for anylsis 
+#Data: data set for analysis 
 #StatusVar: Name of status variable
 #TimeVar: Name of time variable
 #Treatmentvar: Name of treatment variable
 #ReplicateVar : Name of Replicate variable
 #Returns a table of results
-
+#Added 2018-3-23
+	#code to calculate and display median time to effect
+	
 #Prep Data
 Data$TreatmentVarUse<-as.factor(Data[ ,TreatmentVar])  
 Data$ReplicateVarUse<-as.factor(Data[ ,ReplicateVar])  
@@ -42,7 +44,35 @@ EffectsTable<-round(EffectsTable,4)
 if (length(which(EffectsTable[ ,4]==0))>0){
 EffectsTable[which(EffectsTable[ ,4]==0),4]<-'<1e-4'
 }
+#Added 2018-3-23
+#Create Table of median time to effects
+Meds<-quantile(FitS,.50)
+Treat<-levels(Data$TreatmentVarUse)
+MedianTable<-data.frame(Treat,FitS$n,Meds$quantile,Meds$lower,Meds$upper)
+colnames(MedianTable)<-c('Treatment','N','Median','Lower 95% CI','Upper 95% CI')
+rownames(MedianTable)<-NULL
+
+
 EffectsTable<-cbind(EffectsTable,Sig)
-Results<-list(FitMe=FitMe,FitHP=FitHP,FitS=FitS,EffectsTable=EffectsTable)
+Results<-list(FitMe=FitMe,FitHP=FitHP,FitS=FitS,EffectsTable=EffectsTable,MedianTable=MedianTable)
 return(Results)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

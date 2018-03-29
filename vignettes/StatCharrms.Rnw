@@ -285,17 +285,28 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 	
 \item[\begingroup\color{red}4:\endgroup] A Kaplan\textendash{}Meier plot [\hyperlink{R8}{8}].  This plot does not take into account the replicate structure of the data.  
 
-\item[\begingroup\color{red}5:\endgroup] The main effects table [\hyperlink{R6}{6}].  This table displays the results of a Dunnett's test from the Cox mixed effects models.  The columns are:
+\item[\begingroup\color{red}5:\endgroup] Results from Cox-ME [\hyperlink{R6}{6}].  This table displays the results of a Dunnett's test from the Cox mixed effects models.  The columns are:
 	\begin{itemize}
 		\item \textbf{Comparison}: The treatment levels being compared.
 		\item \textbf{Estimate}: The estimated difference between the treatment and the controls.
-		\item \textbf{Std.Error}:  The estimated difference between treatment levels.
-		\item \textbf{z value}: The value of a z statistic.
+		\item \textbf{Std.Error}: The estimated standard error of the difference between treatment and the controls.
+		\item \textbf{z value}: The value of the z statistic.
 		\item \textbf{P Value}: The corresponding p\textendash{}value of the Dunnett's test.
 		\item \textbf{Sig}: A significance flag where ``.'' is a p\textendash{}value > 0.05, ``*'' is
 			a 0.01 < p\textendash{}value $\leq$  0.05, ``**'' for 0.001 < p\textendash{}value $\leq$  0.01, and ``***'' for p\textendash{}value $\leq$  0.001.  	
 	\end{itemize}
 
+
+\item[\begingroup\color{red}6:\endgroup] Median Time to Effect with 95$\%$ CI.  This table displays the median time to effect along with it's 95$\%$ confidence intervals which are derived from the Kaplan\textendash{}Meier estimates of the survival function.    
+	\begin{itemize}
+		\item \textbf{Treatment}: The treatment level.
+		\item \textbf{N}: The number of events.
+		\item \textbf{Median}: The estimated of the median time to effect.
+		\item \textbf{Lower 95\% CI}: The lower 95$\%$ confidence interval of the median.
+		\item \textbf{Upper 95\% CI}: The upper 95$\%$ confidence interval of the median.
+	\end{itemize}
+	
+	
 \end{enumerate}
 
  
@@ -477,6 +488,8 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 	\item[\begingroup\color{red}5:\endgroup] The \textbf{Summary table} is included in every analysis, and includes entries for:
 		\begin{itemize}
 			\item \textbf{Treatment}: The level of the treatment variable.
+			\item \textbf{Mean (of Replicates)}: The mean of replicate means. With the exception of \textbf{N (Replicate)}, all other entries in the table ignore replicate structure. 
+			\item \textbf{N (Replicate)}:  The number of the different replicates. With the exception of \textbf{Mean (of Replicates)}, all other entries in the table ignore replicate structure. 
 			\item \textbf{Count}: The number of observations for the level of the treatment variable.
 			\item \textbf{Mean}:  The mean of the response for the level of the treatment variable.
 			\item \textbf{Median}: The median of the response for the level of the treatment variable.
@@ -672,7 +685,7 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 
 \label{subsec:OtherEndpointsGraphs}
 \subsection*{Other Endpoints Graphs}
-\addcontentsline{toc}{subsection}{Other Endpoints Graphs}}
+\addcontentsline{toc}{subsection}{Other Endpoints Graphs}
 
 Clicking on the \textbf{Graphs} tab will navigate to the graphing portion of the results window. 
 Below is an example \textbf{Graphs} tab for the example fecundity data set included in StatCharrms.  	
@@ -732,7 +745,7 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
 \addcontentsline{toc}{section}{References}	
 
 \begin{enumerate}
- \item   \hypertarget{R1}{Dunn, O. J. (1964). Multiple comparisons using rank sums. \textit{Technometrics} \textbf{6}:241\textemdash252.}
+ \item   \hypertarget{R1}{Dunn, O. J. (1964). Multiple comparisons using rank sums. \textit{Technometrics} \textbf{6}:241\textemdash{}252.}
 	
  \item	 \hypertarget{R2}{Dunnett, C. W. (1955). A multiple comparison procedure for comparing several treatments with a control. 
 		\textit{Journal of the American Statistical Association}, \textbf{50}:1096\textendash{}1121.}
@@ -741,21 +754,21 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
 		  
 
  \item	 \hypertarget{R4}{Green, J. W., Springer, T. A., Saulnier, A. N., and Swintek, J. A. (2014). Statistical analysis of histopathological endpoints. 
-		  \textit{Environmental Toxicology and Chemistry}, \textbf{33}(5): 1108\textemdash1116}
+		  \textit{Environmental Toxicology and Chemistry}, \textbf{33}(5): 1108\textemdash{}1116}
 
 \item	 \hypertarget{R5}{Groeneveld, R. and Meeden, G. (1984). Measuring Skewness and Kurtosis. 
-		\textit{Journal of the Royal Statistical Society. Series D (The Statistician)} \textbf{33}(4): 391\textemdash399.} 
+		\textit{Journal of the Royal Statistical Society. Series D (The Statistician)} \textbf{33}(4): 391\textemdash{}399.} 
 
- \item	 \hypertarget{R6}{Hosmer, D.W. Jr and Lemeshow, S. (1999). \textit{Applied Survival Analysis: Regression Modeling of Time to Event Data}. Wiley\textemdashInterscience. }		
+ \item	 \hypertarget{R6}{Hosmer, D.W. Jr and Lemeshow, S. (1999). \textit{Applied Survival Analysis: Regression Modeling of Time to Event Data}. Wiley\textemdash{}Interscience. }		
 	
- \item	 \hypertarget{R7}{Jonckheere, A. R. (1954). A distribution\textendash{}free k\textendash{}sample test against ordered alternatives.\\ \textit{Biometrika} \textbf{41}:133\textemdash145. }
+ \item	 \hypertarget{R7}{Jonckheere, A. R. (1954). A distribution\textendash{}free k\textendash{}sample test against ordered alternatives.\\ \textit{Biometrika} \textbf{41}:133\textemdash{}145. }
 
  \item	 \hypertarget{R8}{Kaplan E. L. and Meier P. (1958). Non\textendash{}parametric estimation from incomplete observations. 
-	\textit{Journal of the American Statistical Association } \textbf{53}:457\textemdash481}
+	\textit{Journal of the American Statistical Association } \textbf{53}:457\textemdash{}481}
 
  
  \item  \hypertarget{R9}{Lee, E.T. and Wang, J.W., (2003). \textit{Statistical Methods for Survival Data Analysis, 3th edition}.} 
-	Wiley\textemdashInterscience. 
+	Wiley\textemdash{}Interscience. 
 
  \item  \hypertarget{R10}{OECD, (2014). Current Approaches in the Statistical Analysis of Ecotoxicity Data, OECD	
 	Publishing, Paris. \\
@@ -767,15 +780,15 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
  \item  \hypertarget{R12}{OECD, (2015). OECD Guidelines for the Testing of Chemicals, Section 2. Test No. 241: The Larval Amphibian Growth and Development Assay 
 	(LAGDA). OECD Publishing, Paris. DOI: http://dx.doi.org/10.1787/9789264242340\textemdash{}en}
  
- \item  \hypertarget{R13}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash1022. }
+ \item  \hypertarget{R13}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash{}1022. }
  
- \item  \hypertarget{R14}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash333.}	
+ \item  \hypertarget{R14}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash{}333.}	
 
- \item  \hypertarget{R15}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash175. }
+ \item  \hypertarget{R15}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash{}175. }
 
- \item  \hypertarget{R16}{Westfall P.H. (2014). Kurtosis as Peakedness, 1905\textendash{}2014. R.I.P.. \textit{The American Statistician} \textbf{68}(3):191\textemdash195, DOI: 10.1080/00031305.2014.917055}
+ \item  \hypertarget{R16}{Westfall P.H. (2014). Kurtosis as Peakedness, 1905\textendash{}2014. R.I.P.. \textit{The American Statistician} \textbf{68}(3):191\textemdash{}195, DOI: 10.1080/00031305.2014.917055}
 
- \item  \hypertarget{R17}{Williams D.A. (1971).  A test for differences between treatment means when several dose levels are compared with a zero dose control. \emph{Biometrics} \bold{27}(1):103\textemdash117. }
+ \item  \hypertarget{R17}{Williams D.A. (1971).  A test for differences between treatment means when several dose levels are compared with a zero dose control. \emph{Biometrics} \bold{27}(1):103\textemdash{}117. }
  
 
  

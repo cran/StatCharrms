@@ -2,13 +2,14 @@ buildResultsWindow.te <-
 function(Results){
 #' @export
 #This will add a Tab of results to the Cox-Me table
-.time2EventEnv$ResultsWindow<-gwindow("Time to Event Results", visible=TRUE)
-size(.time2EventEnv$ResultsWindow)<-c(800,600)
+.time2EventEnv$ResultsWindow<-gwindow("Time to Event Results", visible=TRUE,expand=TRUE,fill=TRUE)
+size(.time2EventEnv$ResultsWindow)<-c(800,800)
 #Two Pages Results and Graph
 #Tables Page
-.time2EventEnv$ResultsTab <- ggroup(horizontal = FALSE, container=.time2EventEnv$ResultsWindow, label='Results')
-.time2EventEnv$ResultsTabUp <- ggroup(horizontal = TRUE, container=.time2EventEnv$ResultsTab, label='Results')
+.time2EventEnv$ResultsTab <- ggroup(horizontal = FALSE, container=.time2EventEnv$ResultsWindow, label='Results',expand=TRUE)
+.time2EventEnv$ResultsTabUp <- ggroup(horizontal = TRUE, container=.time2EventEnv$ResultsTab, label='Results',expand=TRUE)
 .time2EventEnv$ResultsButtonBox<-gframe(horizontal = FALSE, container=.time2EventEnv$ResultsTabUp)
+
 #Define buttons 
 .time2EventEnv$ResultsSaveButton<-gbutton("Save Results",handler= function(h,...){
 stemp<-gtkWindow(show=FALSE)
@@ -24,7 +25,7 @@ if (.time2EventEnv$FileName==' '){
 popMessage('File name needed. Save aborted!')
 return()
 }
-.saveResults.te(Results) 
+.saveResults.te(Results,Dir,.time2EventEnv$FileName)
 })
 #Save Graphs
 .time2EventEnv$GraphSaveButton<-gbutton("Save Graphs Only",handler= function(h,...){
@@ -76,6 +77,7 @@ blankDF = data.frame(variables=character(0), stringsAsFactors=FALSE)
 .time2EventEnv$GG<-ggraphics(container=.time2EventEnv$GraphBox,expand=TRUE) #Plot container 
 
 
+
 #Define color and line types
 Colors=c("Black", "red", "blue", "orange","purple","green")
 
@@ -88,14 +90,39 @@ plot(Results$FitS, conf.int = FALSE, main='Plot of Raw Data By Treatment',xlab=.
 col = Colors,lty=Lines,lwd=1.5) 
 
 legend('bottomleft',levels(as.factor(.time2EventEnv$UseData[ ,.time2EventEnv$TreatmentVar])),lty = Lines,
-col =Colors) 
+col =Colors, y.intersp=1.75)
+
+CoxLabBox<-gframe(horizontal = FALSE,container=.time2EventEnv$ResultsTab)
+CoxLab<-glabel('Results from Cox-ME',container=CoxLabBox,where='center') #Summary Table
+
 
 EffectsTable<-as.data.frame(Results$EffectsTable)
 EffectsTable<-cbind(rownames(EffectsTable), EffectsTable)
 colnames(EffectsTable)[1]<-'Comparison'
 
-.time2EventEnv$ResultsTablebox<-gframe(horizontal = FALSE, container=.time2EventEnv$ResultsTab,expand=TRUE)
-.time2EventEnv$ResultsDataGrid<-gtable(EffectsTable,container=.time2EventEnv$ResultsTablebox, expand=TRUE,fill=TRUE )
+.time2EventEnv$ResultsTablebox<-gframe(horizontal = FALSE, container=.time2EventEnv$ResultsTab)
+.time2EventEnv$ResultsDataGrid<-gtable(EffectsTable,container=.time2EventEnv$ResultsTablebox,fill=TRUE )
 size(.time2EventEnv$ResultsDataGrid)<-c(1,90)
 
+#Median Results Box
+
+MedianLabBox<-gframe(horizontal = FALSE,container=.time2EventEnv$ResultsTab)
+MedianLab<-glabel('Median Time to Effect with 95% CI',container=MedianLabBox,where='center') #Summary Table
+	
+MedianTable<-Results$MedianTable
+.time2EventEnv$MedianTablebox<-gframe(horizontal = FALSE, container=.time2EventEnv$ResultsTab)
+.time2EventEnv$ResultsDataGrid<-gtable(MedianTable,container=.time2EventEnv$MedianTablebox,fill=TRUE )
+size(.time2EventEnv$ResultsDataGrid)<-c(1,90)
+
+
 }
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 Package: StatCharrms
-Version: 0.90.7
-Date: 2018-1-08
+Version: 0.90.8
+Date: 2018-3-27
 Title: Statistical Analysis of Chemistry, Histopathology, and
         Reproduction Endpoints Including Repeated Measures and
         Multi-Generation Studies
@@ -26,11 +26,11 @@ Description: A front end for the statistical analyses involved in the tier II en
 License: CC0
 URL: https://CRAN.R-project.org/package=StatCharrms
 Author: Joe Swintek [aut, cre],
-	Kevin Flynn [ctb],
-	Jon Haselman [ctb]
+  Kevin Flynn [ctb],
+  Jon Haselman [ctb]
 Maintainer: Joe Swintek <swintek.joe@epa.gov>
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2018-01-16 17:31:09 UTC; jswintek
+Packaged: 2018-03-29 16:10:03 UTC; jswintek
 Repository: CRAN
-Date/Publication: 2018-01-16 17:41:46 UTC
+Date/Publication: 2018-03-29 16:26:47 UTC

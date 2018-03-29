@@ -37,8 +37,11 @@ analyseTime2Effect(Data, StatusVar, TimeVar, TreatmentVar, ReplicateVar)
 	\item{FitHP }{The results from \code{\link{coxph}}. It is used in graphing.}
 	\item{FitS }{The results from \code{\link{survfit}}. It is used in graphing.}
 	\item{EffectsTable}{A dunnett table from \code{\link{oneWayDunnettTest}}. }
-
+	\item{MedianTable}{A table showing the median time to effect along with the median's 95\% confidence intervals. See \code{\link{quantile.survfit}} for more details.}
+	
 }
+
+
 \references{
 	Ripatti and J Palmgren, Estimation of multivariate frailty models using penalized partial likelihood, \emph{Biometrics} \bold{56}:1016-1022, 2000. 
 	\cr T Therneau, P Grambsch and VS Pankratz, Penalized survival models and frailty, \emph{J Computational and Graphical Statistics} \bold{12}:156-175, 2003. 
