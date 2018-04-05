@@ -3,7 +3,10 @@ function(){
 #' @export
 
 
-Changes<-"---------------------------------V0.90.8--------------------------------------
+Changes<-"---------------------------------V0.90.9--------------------------------------
+Fixed coding typos in the vignette 
+
+---------------------------------V0.90.8--------------------------------------
 Fixed bug that would cause StatCharrms to sometimes ignore sub setting on generation.
 StatCharrms will now properly excluded the excluded times.
 Added output that now shows the estimated median time to effect.

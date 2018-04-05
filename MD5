@@ -1,11 +1,11 @@
-47976022d6f5886995332f971401cd23 *DESCRIPTION
+75f0af34248691110d60da39dcd40a90 *DESCRIPTION
 ed9a7a2b70e963bccd0fddf23f3690d5 *INDEX
 1741c045c43f834a65fa2530cd146abf *NAMESPACE
 c7689c9ebb8067e51afa3fc294f96d34 *R/FindFormat.R
 f1b6469b3f1b0cb1e742be525c34370a *R/ReadMeFile.R
 f456241317dc62dc1cae2acaf570d686 *R/Reference.R
-bfad85b58e9922c523b4f5e7998a6f25 *R/Run.StatCharrms.R
-d420085b4c1ab499edfb17950d30e459 *R/ShowChangeLog.R
+0fc38e23ba6c56743efa2f883da547e2 *R/Run.StatCharrms.R
+2498fc6280822ba0a0a0e385beceda68 *R/ShowChangeLog.R
 95c4ce16978e354a49656cc87321afce *R/StatCharrms-internal.R
 e64441e2a4dad64748bc12fd2227a898 *R/StdEndMain.R
 ec097fe0204c8175d3ba54d397c32cb0 *R/Time2EventMain.R
@@ -46,8 +46,8 @@ dcafbe9ddd2ed71b2351468750b39ffe *data/eventTimeData.rda
 5f0b9ba3c45c21fdfda95b85bbd20492 *data/lengthWeightData.rda
 5bd43731ad4eb48589ae277e871a841f *data/williamsTestLookUpTable.rda
 e830b72fd68847015db44e0c2d1ee519 *inst/CITATION
-848ec473d109dacaf40ed59dbb2d6167 *inst/doc/StatCharrms.Rnw
-8dd3c9e5768c663e35215d80c1e97f34 *inst/doc/StatCharrms.pdf
+18c0372ac5d4493751263f550bd9ecee *inst/doc/StatCharrms.Rnw
+11b0ca871de0f9952d9849d90466b03c *inst/doc/StatCharrms.pdf
 24cf7ed33cbe6792976022ef6318f580 *man/FindFormat.Rd
 646ebe42018f891879100d6590622022 *man/ReadMeFile.Rd
 df3811823cd345546575ca077c23fc1f *man/Reference.Rd
@@ -107,7 +107,7 @@ ebce679c7c9e459f2937873b959dfc82 *vignettes/StandardAnl5-New.png
 7129e0989ee3a1b7ecc2d6400478f604 *vignettes/StandardAnl6-n.png
 2f9b95e1caa59cc151e93e38703d5dbf *vignettes/StandardAnl7-n.png
 a6f6387b6980ed7ff036e7aa5ce8f16e *vignettes/StandardAnl7.png
-848ec473d109dacaf40ed59dbb2d6167 *vignettes/StatCharrms.Rnw
+18c0372ac5d4493751263f550bd9ecee *vignettes/StatCharrms.Rnw
 ad63bd36c14c605e4115c5f626277043 *vignettes/Time2Event1.png
 2518e90c4864becfbadd5f0410557ac6 *vignettes/Time2Event2.png
 39e622e583c4431bdfb6e1f0439b2712 *vignettes/Time2Event3.png

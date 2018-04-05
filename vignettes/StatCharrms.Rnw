@@ -782,13 +782,13 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
  
  \item  \hypertarget{R13}{Ripatti and  Palmgren, J. (2000). Estimation of multivariate frailty models using penalized partial likelihood, \textit{Biometrics} \textbf{56}:1016\textemdash{}1022. }
  
- \item  \hypertarget{R14}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \bold{14}:327\textemdash{}333.}	
+ \item  \hypertarget{R14}{Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. \textit{Indagationes Mathematicae} \textbf{14}:327\textemdash{}333.}	
 
  \item  \hypertarget{R15}{Therneau T., Grambsch P., and  Pankratz VS. (2003). Penalized survival models and frailty, \textit{Journal of Computational and Graphical Statistics} \textbf{12}:156\textemdash{}175. }
 
  \item  \hypertarget{R16}{Westfall P.H. (2014). Kurtosis as Peakedness, 1905\textendash{}2014. R.I.P.. \textit{The American Statistician} \textbf{68}(3):191\textemdash{}195, DOI: 10.1080/00031305.2014.917055}
 
- \item  \hypertarget{R17}{Williams D.A. (1971).  A test for differences between treatment means when several dose levels are compared with a zero dose control. \emph{Biometrics} \bold{27}(1):103\textemdash{}117. }
+ \item  \hypertarget{R17}{Williams D.A. (1971).  A test for differences between treatment means when several dose levels are compared with a zero dose control. \emph{Biometrics} \textbf{27}(1):103\textemdash{}117. }
  
 
  
@@ -803,7 +803,7 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
 
 \label{subsec:FlowChart}
 \subsection*{Analysis Flow Chart}
-\addcontentsline{toc}{subsection}{Analysis Flow Chart}}	
+\addcontentsline{toc}{subsection}{Analysis Flow Chart}
 \hypertarget{fig:FlowChart}{} 
 
 
@@ -816,7 +816,7 @@ Below is an example \textbf{Graphs} tab for the example fecundity data set inclu
 	
 \label{subsec:RGtk2W}
 \subsection*{RGtk2 Version Warning}
-\addcontentsline{toc}{subsection}{RGtk2 Version Warning}}	
+\addcontentsline{toc}{subsection}{RGtk2 Version Warning}	
 \hypertarget{fig:RGtk2W}{} 
 
 At the time of writing this, the current version of RGtk2 (2.20.33) does not work with the GUI functions of StatCharrms. 
