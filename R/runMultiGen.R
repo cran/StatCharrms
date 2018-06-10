@@ -147,14 +147,14 @@ if (Path==2){
 	#if (length(which(p.value<=0.05))>0){
 	#GroupEffects[which(GroupComp$test$pvalues<=0.05),7]='**'
 	#}
-	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.05),11]='*'
+	if (length(which(GroupComp$test$pvalues<=0.05))>0){
+		GroupEffects[which(GroupComp$test$pvalues<=0.05),11]='*'
 	}
-	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.001),11]='**'
+	if (length(which(GroupComp$test$pvalues<=0.05))>0){
+		GroupEffects[which(GroupComp$test$pvalues<=0.001),11]='**'
 	}
-	if (length(which(p.value<=0.05))>0){
-		GroupEffects[which(p.value<=0.0001),11]='***'
+	if (length(which(GroupComp$test$pvalues<=0.05))>0){
+		GroupEffects[which(GroupComp$test$pvalues<=0.0001),11]='***'
 	}
 
 
@@ -251,9 +251,15 @@ if (Path==2){
 	}
 
 	ShapiroTest<-shapiro.test(Lmm$residuals[,1]) #Test for norm
-	LeveneTest<-leveneTest(Lmm$residuals[,1]~Data$Group) #Test for equal Variance
 
+	
+	LeveneTest<-leveneTestSC(Data,'Group',Lmm$residuals[,1]) #Test for equal Variance
+	
+	
 
+	
+	
+	
 	Out=list('Anova.Table'=AnovaTable,'MainEffects'=MainEffects,
 	'LeveneTest'=LeveneTest,'FreqTable'=FreqTable,'Lmm'=Lmm,'ShapiroTest'=ShapiroTest)
 }
@@ -386,8 +392,13 @@ if (Path==3){
 		Residuals<-Residuals[ ,1]
 	}
 	ShapiroTest<-shapiro.test(Residuals) #Test for norm
-	LeveneTest<-leveneTest(Residuals~Data$Group) #Test for equal Variance
+	LeveneTest<-leveneTestSC(Data,'Group',Lmm$residuals[,1]) #Test for equal Variance
+	
+	
 
+
+	
+	
 	Out=list('Anova.Table'=AnovaTable,'MainEffects'=MainEffects,
 	'LeveneTest'=LeveneTest,'FreqTable'=FreqTable,'Lmm'=Lmm,'ShapiroTest'=ShapiroTest)
 	}

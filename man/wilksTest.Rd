@@ -25,7 +25,7 @@ WilksTest, a data frame containing:
  \item{KURT}{The measure of kurtosis (how heavy tailed the distribution is) of the data set.}
  \item{SW_STAT}{The Shapiro-Wilks test statistic.}
  \item{P_VALUE}{The p-Value for the test statistic.}
- \item{Signif}{The flag for p-values less then 0.05.}
+ \item{Signif}{The flag for p-values less then 0.01.}
 
 }
 \references{

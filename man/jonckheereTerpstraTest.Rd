@@ -38,6 +38,11 @@ jonckheereTerpstraTest(Data, Treatment, Response, TestDirection, AlphaLevel)
 \item{Max Level of Treatment}{The treatment level the test statistic corresponds to.}		
 }
 
+\note{
+A note when using the JT.  The JT estimates p-values by a random process thus after an initial run, subsequent runs of the JT will produce slightly different p-values. To produce exactly the same p-values between each run you will need to use the \code{\link{set.seed}} function in the R console before each run.
+}
+
+
 \references{
 Jonckheere, A. R. (1954). A distribution-free k-sample test against ordered alternatives. \emph{Biometrika} \bold{41}:133-145. 
 \cr Terpstra, T. J. (1952). The asymptotic normality and consistency of Kendall's test against trend, when ties are present in one ranking. emph{Indagationes Mathematicae} \bold{14}:327-333. 

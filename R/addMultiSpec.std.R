@@ -179,8 +179,9 @@ popMessage('Please Select Date/Time Variable First')
 return()
 }
 
- .stdEndEnv$TimeExcludeVal<-NULL
-selectPara('TimeExcludeVal',NULL,'.stdEndEnv',levels(.stdEndEnv$MainData[ ,.stdEndEnv$TimeVar]),TRUE,'Excluded Times')
+
+.stdEndEnv$TimeExcludeVal<-NULL
+selectPara('TimeExcludeVal',NULL,'.stdEndEnv',levels(as.factor(.stdEndEnv$MainData[ ,.stdEndEnv$TimeVar])),TRUE,'Excluded Times')
 
 while (is.null(.stdEndEnv$TimeExcludeVal) == TRUE){
 	Sys.sleep(0.01)

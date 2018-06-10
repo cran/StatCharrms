@@ -4,6 +4,7 @@
 \setlength\parindent{24pt}
 \usepackage{indentfirst}
 \usepackage{Sweave}
+\usepackage{fancyvrb}
 \usepackage{color}
 \usepackage{makebox}
 \usepackage{graphicx} 
@@ -19,6 +20,16 @@
  
 \definecolor{gray50}{gray}{0.5}
 
+\DefineVerbatimEnvironment{RBox}{Verbatim}{xleftmargin=0em,
+                                              frame=single,
+                                              rulecolor=\color{gray50},
+                                              framesep=3mm,
+                                              label=\tiny{R Input},
+                                              samepage=true}
+									  
+									  
+
+
 %\VignetteIndexEntry{StatCharrms} 
 %\VignetteDepends{StatCharrms} 
 %\VignetteKeywords{StatCharrms} 
@@ -26,13 +37,7 @@
 
 
 
-\DefineVerbatimEnvironment{RBox}{Verbatim} {xleftmargin=0em,
-                                              frame=single,
-                                              rulecolor=\color{gray50},
-                                              framesep=3mm,
-                                              label=\tiny{R Input},
-                                              samepage=true}
-									  
+
 \begin{document}
 \title{StatCharrms:\\ An R Package for ``Statistical Analysis of Chemistry, Histopathology, and Reproduction Endpoints Including Repeated Measures and Multi\textendash{}Generation Studies''}
 \author{Joe Swintek \\ Badger Technical Services }
@@ -107,12 +112,14 @@ the [\hyperlink{DataExample}{\textbf{Examples}}] button to see how to access mor
 	StatCharrms is a complete front\textendash{}end of R to perform the analyses required for the MEOGRT and LAGDA tests
 	containing graphical user interface (GUI) driven operations. To call the GUI for StatCharrms,  
 	type the following into the R console:       
+	
 
 \begin{RBox}
 > install.packages('StatCharrms')	#Install StatCharrms from CRAN
 > library(StatCharrms)		   #Load the StatCharrms library
 > Run.StatCharrms()	 	     #Calls the GUI for StatCharrms
 \end{RBox}
+
 
 This should bring up the introduction window for StatCharrms.   
 
@@ -135,12 +142,14 @@ This should bring up the introduction window for StatCharrms.
 		for StatCharrms. To view the help files for example data sets type the following into the R console:   
 	
 
+
 \begin{RBox}
 > help(eventTimeData)     #For time to event data
 > help(fecundityData)     #For fecundity data
 > help(lengthWeightData)  #For length and weight data
 > help(exampleHistData)   #For histological data
-\end{RBox}	
+\end{RBox}
+
 	
 	These data sets are used for the examples presented in this document, the '\textbf{eventTimeData}' data set is used in the \hyperlink{Time2Event}{\textbf{[Time to Event Analysis]}},
 	the  '\textbf{lengthWeightData}' data set in the \hyperlink{OtherEnd}{\textbf{[Analysis of Other Endpoints]}}, and the '\textbf{eventTimeData}' is used in the examples for
@@ -186,10 +195,11 @@ This should bring up the introduction window for StatCharrms.
 	or if Run.StatCharrms() has been, called the RSCABS vignette can be opened by typing the following
 	into the R Console:		
 		
+
 \begin{RBox}
 > vignette('RSCABS')	
-\end{RBox}	
-	
+\end{RBox}
+
 	
 
   
@@ -547,6 +557,7 @@ mixed effects Cox proportional hazards analysis on the data, then generate the \
 					\item \textbf{Max Level of Treatment}: The treatment level the test statistic corresponds to.	
 				\end{itemize}	
 			
+				A note when using the JT.  The JT estimates p\textendash{}values by a random process thus after an initial run, subsequent runs of the JT will produce slightly different p\textendash{}values. To produce exactly the same p\textendash{}values between each run you will need to use the ``set.seed'' function in the R console before each run.
 			
 			
 			

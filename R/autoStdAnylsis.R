@@ -78,6 +78,7 @@ Comments=Comments,MonocityMsg=MonocityMsg,DunnsTable=DunnsTable)
 
 if (UseJT==FALSE){
 
+
 RMResponce<-runMultiGen(TransData,TreatVar=TreatmentVar,ResponVar='TransformedResponse',
 RepVar=ReplicateVar,Path=3,TimeVar='Not Used',Alternative)
 
@@ -86,7 +87,7 @@ AnovaResults<-RMResponce$Anova.Table
 OneWayDunnetResults<-RMResponce$MainEffects
 
 
-Residuals<- RMResponce$Lmm$residuals
+Residuals<-RMResponce$Lmm$residuals
 
 if(is.null(dim(Residuals))==FALSE){ #This checkes the Residuals for the Lme function
 Residuals<-Residuals[ ,2]

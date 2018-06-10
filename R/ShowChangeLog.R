@@ -3,7 +3,17 @@ function(){
 #' @export
 
 
-Changes<-"---------------------------------V0.90.9--------------------------------------
+Changes<-"---------------------------------V0.90.91--------------------------------------
+Fixed coding typos in the vignette.
+Allowed set.seed to work with the JT.
+Fixed a bug that caused the table for the Levene's test to break.
+Clarified use of the p-value for both the Levene's and Shapiro-Wilks test.
+Clarified and the output what test alpha level was used for. 
+Fixed bug that forced the specification of the generation variable.
+Fixed a bug that prevented 'numeric' times to be properly excluded when the 'Select Excluded Times' was used.
+
+
+---------------------------------V0.90.9--------------------------------------
 Fixed coding typos in the vignette 
 
 ---------------------------------V0.90.8--------------------------------------

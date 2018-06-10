@@ -27,10 +27,10 @@ WilksTest$SKEW<-round(WilksTest$SKEW,5)
 WilksTest$KURT<-round(WilksTest$KURT,5)
 WilksTest$SW_STAT<-round(WilksTest$SW_STAT,5)
 
-if (WilksTest$P_VALUE<0.05){
+if (WilksTest$P_VALUE<0.01){
 WilksTest$Signif<-'*'
 }
-if (WilksTest$P_VALUE>=0.05){
+if (WilksTest$P_VALUE>=0.01){
 WilksTest$Signif<-'.'
 }
 return(WilksTest)

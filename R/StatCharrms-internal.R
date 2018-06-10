@@ -527,7 +527,8 @@ Message5<-paste("<br>Using Age variable: <b>",.stdEndEnv$AgeVar,'</b>'," and Age
 Message6<-paste("<br>Using Time variable: <b>",.stdEndEnv$TimeVar,'</b>'," and Time Increment: <b>",.stdEndEnv$TimeInt,'</b>', sep='')
 Message7<-paste("<br>Using as weights: <b>",.stdEndEnv$WeightList,'</b>', sep='')
 Message8<-paste("<br>Using Test Direction: <b>",.stdEndEnv$TestDirection,'</b>',"<br>Using Alpha Level: <b>",.stdEndEnv$AlphaLevel,'</b>',  sep='')
-Message<-paste(Message1,Message2,Message3,Message4,Message5,Message6,Message7,Message8,'</b><br>',sep='')
+Message9<-"<br> Alpha Level only applies to calculations for Confidence Intervals and the Jonckheere-Terpstra trend test"  
+Message<-paste(Message1,Message2,Message3,Message4,Message5,Message6,Message7,Message8,Message9,'</b><br>',sep='')
 
 return(Message)
 }
@@ -624,8 +625,8 @@ if (identical(.stdEndEnv$ReplicateVar, 'Not Used')==FALSE){
 
 
 #Apply Subsets
-if(identical(.stdEndEnv$GenerationVal,'Not Used')==FALSE){ #
-.stdEndEnv$UseData<-subset(.stdEndEnv$UseData,.stdEndEnv$UseData[ ,.stdEndEnv$GenerationVar] == .stdEndEnv$GenerationVal)
+if(identical(.stdEndEnv$GenerationVar,'Not Used')==FALSE){ 
+	.stdEndEnv$UseData<-subset(.stdEndEnv$UseData,.stdEndEnv$UseData[ ,.stdEndEnv$GenerationVar] == .stdEndEnv$GenerationVal)
 }
 
 if(identical(.stdEndEnv$GenderVar,'Not Used')==FALSE){
@@ -816,7 +817,6 @@ Files<-lapply(Names,function(X){paste(HistoDir,'\\',X,sep='')})
 #Graph all endpoints
 CantPrint<-''
 for (i in 1:length(Files)){
-
 Msg<-try(plotRSCABS(exampleHistData,Names[[i]],'Treatment','Percent',
 'Remove',NULL,'png',File=Files[[i]]))
 if (is(Msg)[1]=='try-error'){

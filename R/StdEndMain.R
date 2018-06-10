@@ -64,8 +64,11 @@ if (.stdEndEnv$CanRun==TRUE){
 .stdEndEnv$TestType<-list()
 
 popMessage('The analysis is now running, this may take a few minutes.')
-for (Response in .stdEndEnv$EndPointVar){
 
+Seed<- abs(sum(as.numeric(.Random.seed)))
+Seed<- Seed-signif(Seed,6)
+for (Response in .stdEndEnv$EndPointVar){
+set.seed(Seed)
 Transform<-svalue(.stdEndEnv$EndpointObject[[Response]]$TransformationCbx)
 	if (identical(Transform,'Transformation')==TRUE){
 	Transform<-'None'
