@@ -1,6 +1,5 @@
 forceStdAnalysis <-
 function(Data,Response,TreatmentVar,Transform,WeightsVar,TimeVar,TestDirection,ReplicateVar,Test,AlphaLevel){
-
 #' @export
 #This function run if Auto is not selected for TestType
 #It will force the analysis to what ever the user picks
@@ -121,7 +120,7 @@ JonckheereTerpstraResults<-jonckheereTerpstraTest(AvgData,TreatmentVar,Response,
 if (Test== 'Dunnett'){
 if (ReplicateVar=='Not Used'){  #Do nothing
 AvgData<-TempData;}else{  
-AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar) 
+AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar)
 }
 AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
 AvgTransData<-responseTransform(AvgData,Response,Transform) #Transform Data of average
@@ -138,16 +137,22 @@ WilksResults<-wilksTest(Residuals)
 
 
 if (Test== 'Dunns'){
-DunnsTable<-dunnsTest(TempData,TreatmentVar,Response,TestDirection)
+if (ReplicateVar=='Not Used'){  #Do nothing
+AvgData<-TempData;}else{  
+AvgData<-medianData(TempData,TreatmentVar,Response,ReplicateVar) 
+}
+AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
+DunnsTable<-dunnsTest(AvgData,TreatmentVar,Response,TestDirection)
 }
 
 
 #2017-10-17
 if (Test== 'Williams'){
-	
+
 	#Test for normality needed for Williams
 	if (ReplicateVar=='Not Used'){  #Do nothing
-		AvgData<-TempData;}else{  
+		AvgData<-TempData;
+		}else{  
 		AvgData<-averageData(TempData,TreatmentVar,Response,ReplicateVar) 
 	}
 	
@@ -163,17 +168,17 @@ if (Test== 'Williams'){
 	#Also display results for the test for 
 	MonocityTable<-monotonicityTest(AvgData,TreatmentVar,Response) #Test for Monotonicity set in place by OECD p.44 #142
 	
-		
+	
 		
 	if (TestDirection=='Both'){
-		WilliamsTableUp<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'increasing')
-		WilliamsTableDown<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'decreasing')
+		WilliamsTableUp<-williamsTest(AvgTransData,'TransformedResponse',TreatmentVar,'increasing')
+		WilliamsTableDown<-williamsTest(AvgTransData,'TransformedResponse',TreatmentVar,'decreasing')
 	}
 	if (TestDirection=='Decreasing'){
-		WilliamsTableDown<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'decreasing')
+		WilliamsTableDown<-williamsTest(AvgTransData,'TransformedResponse',TreatmentVar,'decreasing')
 	}
 	if (TestDirection=='Increasing'){
-		WilliamsTableUp<-williamsTest(TransData,'TransformedResponse',TreatmentVar,'increasing')
+		WilliamsTableUp<-williamsTest(AvgTransData,'TransformedResponse',TreatmentVar,'increasing')
 	}	
 	
 	

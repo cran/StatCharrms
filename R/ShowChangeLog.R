@@ -3,7 +3,14 @@ function(){
 #' @export
 
 
-Changes<-"---------------------------------V0.90.91--------------------------------------
+Changes<-"---------------------------------V0.90.92--------------------------------------
+Changed saving time to effect results for median time to effect to round to the nearest tenth.
+Dunns test now properly takes into account replicates 
+Williams test now properly takes into account replicates 
+The JT now works (again) for when treatment effects in the second lowest dose level are 'significant'  
+The JT now works (again) for when no treatment effects are 'significant'  
+
+---------------------------------V0.90.91--------------------------------------
 Fixed coding typos in the vignette.
 Allowed set.seed to work with the JT.
 Fixed a bug that caused the table for the Levene's test to break.

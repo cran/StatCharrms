@@ -497,7 +497,7 @@ if (is.null(MedianTable)==FALSE){
 		MedianTable[NAs]<-'-'
 	}
 	HTML('<center><b>Median Time to Effect with 95% CI</b></center>')
-	HTML(MedianTable ,row.name=FALSE,innerBorder = 1,CSSstyle='')
+	HTML(MedianTable ,row.name=FALSE,innerBorder = 1,CSSstyle='',nsmall=1)
 }
 
 

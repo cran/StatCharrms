@@ -15,6 +15,7 @@ function(){
 .time2EventEnv$GenderVar<-'Not Used'
 .time2EventEnv$GenerationVar<-'Not Used'
 
+
 .time2EventEnv$MainWindow<-gwindow("Time to Event Analysis", visible=FALSE)
 size(.time2EventEnv$MainWindow)<-c(800,600)
 .time2EventEnv$T2ENotebook <- gnotebook(container =.time2EventEnv$MainWindow, expand=TRUE)
