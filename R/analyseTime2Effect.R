@@ -10,7 +10,12 @@ function(Data,StatusVar,TimeVar,TreatmentVar,ReplicateVar){
 #Returns a table of results
 #Added 2018-3-23
 	#code to calculate and display median time to effect
-	
+#Added 2019-6-12	
+	#Code to 
+
+#Large Effect Warning
+UseLRT<-FALSE
+
 #Prep Data
 Data$TreatmentVarUse<-as.factor(Data[ ,TreatmentVar])  
 Data$ReplicateVarUse<-as.factor(Data[ ,ReplicateVar])  
@@ -21,8 +26,8 @@ Data$StatusVarUse<-Data[ ,StatusVar]
 #Used for analysis
 FitMe <- withCallingHandlers(
 coxme(Surv(TimeVarUse, StatusVarUse) ~ TreatmentVarUse + (1|Subject), data = Data),  #Use this one
-warning = function(w){popMessage(paste('Warning!\n',w$message))}
-)
+warning = function(w){popMessage(paste('Warning!\n',w$message,'\nThis may lead to unreliable statistical inferences. The use of a likelihood ratio test is recommended.'));})
+
 
 #Used in Graphing
 FitHP<-coxph(Surv(TimeVarUse, StatusVarUse)~TreatmentVarUse, data=Data)
@@ -54,7 +59,7 @@ rownames(MedianTable)<-NULL
 
 
 EffectsTable<-cbind(EffectsTable,Sig)
-Results<-list(FitMe=FitMe,FitHP=FitHP,FitS=FitS,EffectsTable=EffectsTable,MedianTable=MedianTable)
+Results<-list(FitMe=FitMe,FitHP=FitHP,FitS=FitS,EffectsTable=EffectsTable,MedianTable=MedianTable,UseLRT=UseLRT)
 return(Results)
 }
 

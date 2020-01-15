@@ -1,6 +1,6 @@
 Package: StatCharrms
-Version: 0.90.92
-Date: 2019-2-11
+Version: 0.90.94
+Date: 2020-1-14
 Title: Statistical Analysis of Chemistry, Histopathology, and
         Reproduction Endpoints Including Repeated Measures and
         Multi-Generation Studies
@@ -31,8 +31,8 @@ Author: Joe Swintek [aut, cre],
   Jon Haselman [ctb],
   Maki Sakurai [ctb]
 Maintainer: Joe Swintek <swintek.joe@epa.gov>
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2019-02-11 15:39:11 UTC; jswintek
+Packaged: 2020-01-14 17:00:55 UTC; jswintek
 Repository: CRAN
-Date/Publication: 2019-02-11 16:33:15 UTC
+Date/Publication: 2020-01-15 23:00:02 UTC

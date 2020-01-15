@@ -32,7 +32,7 @@ message(paste('\n',Response,'is being analysed'))
 #Remove missing data from the data set
 TempData<-Data
 if (length(which(is.finite(TempData[ ,Response])==FALSE))>0){
-TempData<-TempData[-{which(is.finite(TempData[ ,Response])==FALSE)}, ]
+	TempData<-TempData[-{which(is.finite(TempData[ ,Response])==FALSE)}, ]
 }
 
 #Check Replicate Structure and Take Median for each Replicate by OECD Standards 
@@ -43,18 +43,24 @@ AvgData<-medianData(TempData,TreatmentVar,Response,ReplicateVar)
 AvgData[ ,Response]<-as.numeric(as.character(AvgData[ ,Response]))
 
 
-#Step one Check Monotonicity 
-MonocityTable<-monotonicityTest(AvgData,TreatmentVar,Response) #Test for Monotonicity set in place by OECD p.44 #142
+#Check for Multiple treatment levels V0.93
+if (length(unique(Data[[TreatmentVar]])) == 2){
+		UseJT<-FALSE
+		MonocityTable<-NULL
+	}else{
+		#Step one Check Monotonicity 
+		MonocityTable<-monotonicityTest(AvgData,TreatmentVar,Response) #Test for Monotonicity set in place by OECD p.44 #142
 
-UseJT<-TRUE
-if (MonocityTable[2,4] !='.' & MonocityTable[1,4] =='.' ){ #Fail test
-MonocityMsg<<-'Test for Monotonicity Failed: Will Not Compute JT'
-UseJT<-FALSE
+		UseJT<-TRUE
+		if (MonocityTable[2,4] !='.' & MonocityTable[1,4] =='.' ){ #Fail test
+			MonocityMsg<<-'Test for Monotonicity Failed: Will Not Compute JT'
+			UseJT<-FALSE
+		}
 }
 
 #Trend Test 
 if (UseJT==TRUE){
-JonckheereTerpstraResults<-jonckheereTerpstraTest(AvgData,TreatmentVar,Response,TestDirection,AlphaLevel)
+	JonckheereTerpstraResults<-jonckheereTerpstraTest(AvgData,TreatmentVar,Response,TestDirection,AlphaLevel)
 }
 
 #Transform Data
@@ -89,14 +95,14 @@ OneWayDunnetResults<-RMResponce$MainEffects
 
 Residuals<-RMResponce$Lmm$residuals
 
-if(is.null(dim(Residuals))==FALSE){ #This checkes the Residuals for the Lme function
+if(is.null(dim(Residuals))==FALSE){ #This checks the Residuals for the Lme function
 Residuals<-Residuals[ ,2]
 }
 
 LeveneResults<-leveneTestSC(TransData,TreatmentVar,Residuals)
 WilksResults<-wilksTest(Residuals)
 
-#Checkassumptions
+#Check assumptions
 NormalTestLevene=TRUE
 NormalTestWiks=TRUE
 

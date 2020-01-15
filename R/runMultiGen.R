@@ -392,7 +392,7 @@ if (Path==3){
 		Residuals<-Residuals[ ,1]
 	}
 	ShapiroTest<-shapiro.test(Residuals) #Test for norm
-	LeveneTest<-leveneTestSC(Data,'Group',Lmm$residuals[,1]) #Test for equal Variance
+	LeveneTest<-leveneTestSC(Data,'Group',Residuals) #Test for equal Variance
 	
 	
 

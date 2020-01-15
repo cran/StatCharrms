@@ -64,6 +64,9 @@ if (.stdEndEnv$CanRun==TRUE){
 .stdEndEnv$TestType<-list()
 
 popMessage('The analysis is now running, this may take a few minutes.')
+if (length(unique(.stdEndEnv$UseData[[.stdEndEnv$TreatmentVar]])) == 2){
+		popMessage('There are only two treatment levels.\nStatCharrms will skip using the JT.')
+}
 
 Seed<- abs(sum(as.numeric(.Random.seed)))
 Seed<- Seed-signif(Seed,6)
@@ -82,12 +85,14 @@ TestType<-'Auto'
 
 
 if (TestType == 'Auto'){ 
+#Check for Multiple treatment levels V0.93
 .stdEndEnv$Results[[Response]]<-autoStdAnylsis(.stdEndEnv$UseData,Response,.stdEndEnv$TreatmentVar,
 Transform,.stdEndEnv$WeightsVar,.stdEndEnv$TimeVar,.stdEndEnv$TestDirection,.stdEndEnv$ReplicateVar,.stdEndEnv$AlphaLevel)
 
 }
 
 if (TestType!= 'Auto'){
+
 .stdEndEnv$Results[[Response]]<-forceStdAnalysis(.stdEndEnv$UseData,Response,.stdEndEnv$TreatmentVar, Transform,.stdEndEnv$WeightsVar,.stdEndEnv$TimeVar,
 .stdEndEnv$TestDirection,.stdEndEnv$ReplicateVar,TestType,.stdEndEnv$AlphaLevel)
 }
