@@ -1,6 +1,6 @@
 Package: StatCharrms
-Version: 0.90.94
-Date: 2020-1-14
+Version: 0.90.95
+Date: 2020-4-30
 Title: Statistical Analysis of Chemistry, Histopathology, and
         Reproduction Endpoints Including Repeated Measures and
         Multi-Generation Studies
@@ -10,7 +10,7 @@ Authors@R: c(person("Joe", "Swintek", role = c("aut", "cre"), email = "swintek.j
 		person("Maki", "Sakurai", role = "ctb", email = "skr21441@ideacon.co.jp")
 	)
 Depends: R (>= 3.1.0)
-Imports: RGtk2, R2HTML, gWidgets, gWidgetsRGtk2, multcomp, nlme,
+Imports: RGtk2, R2HTML, gWidgets2, gWidgets2RGtk2, multcomp, nlme,
         lattice, cairoDevice, car, clinfun, survival, coxme, methods,
         RSCABS
 SystemRequirements: GTK+ (>= 2.8.0)
@@ -31,8 +31,8 @@ Author: Joe Swintek [aut, cre],
   Jon Haselman [ctb],
   Maki Sakurai [ctb]
 Maintainer: Joe Swintek <swintek.joe@epa.gov>
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 NeedsCompilation: no
-Packaged: 2020-01-14 17:00:55 UTC; jswintek
+Packaged: 2020-04-30 21:06:50 UTC; Here
 Repository: CRAN
-Date/Publication: 2020-01-15 23:00:02 UTC
+Date/Publication: 2020-04-30 22:50:02 UTC

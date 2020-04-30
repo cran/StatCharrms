@@ -5,8 +5,8 @@
 
 
 .onLoad<-function(...){
-#' @import gWidgets
-#' @import gWidgetsRGtk2
+#' @import gWidgets2
+#' @import gWidgets2RGtk2
 #' @import RGtk2
 #' @import R2HTML
 #' @import multcomp	

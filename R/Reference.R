@@ -13,7 +13,7 @@ MessageA4<-"GTK+
 
 MessageA5<-paste("RGtk2 Package \n",citation('RGtk2')$textVersion,sep='')
   
-MessageA6<-paste("gWidgetsRGtk2 Package \n", citation('gWidgetsRGtk2')$textVersion,sep='')
+MessageA6<-paste("gWidgets2RGtk2 Package \n", citation('gWidgets2RGtk2')$textVersion,sep='')
   
 MessageA7<-paste("R2HTML Package \n", citation('R2HTML')$textVersion,sep='')
 

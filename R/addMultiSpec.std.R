@@ -97,7 +97,7 @@ Sys.sleep(0.01)
 for (e in .stdEndEnv$EndPointVar){
 	if(is.null(.stdEndEnv$EndpointObject[[e]])==TRUE){
 		.stdEndEnv$EndpointObject[[e]]<-list()
-		.stdEndEnv$EndpointObject[[e]]$Frame<-gframe(e,container=.stdEndEnv$EndpointControlFrm,fill=TRUE,editable = TRUE)
+		.stdEndEnv$EndpointObject[[e]]$Frame<-gframe(e,container=.stdEndEnv$EndpointControlFrm,fill=TRUE)
 		.stdEndEnv$EndpointObject[[e]]$TestTypeCbx<-gcombobox(c('Test Type','Auto','RM ANOVA','ME ANOVA','Simple ANOVA','Weighted ANOVA','Jonckheere','Dunns','Dunnett','Williams'),container=.stdEndEnv$EndpointObject[[e]]$Frame,fill=TRUE,editable = TRUE)
 		.stdEndEnv$EndpointObject[[e]]$TransformationCbx<-gcombobox(c('Transformation','None','Log',
 		'Log+1','Square_Root','Arcsin(Square_Root)'),container=.stdEndEnv$EndpointObject[[e]]$Frame,fill=TRUE,editable = TRUE)
