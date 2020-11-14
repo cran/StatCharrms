@@ -1,10 +1,10 @@
 Package: StatCharrms
-Version: 0.90.95
-Date: 2020-4-30
+Version: 0.90.96
+Date: 2020-11-10
 Title: Statistical Analysis of Chemistry, Histopathology, and
         Reproduction Endpoints Including Repeated Measures and
         Multi-Generation Studies
-Authors@R: c(person("Joe", "Swintek", role = c("aut", "cre"), email = "swintek.joe@epa.gov"),
+Authors@R: c(person("Joe", "Swintek", role = c("aut", "cre"), email = "swin0023@gmail.com"),
 		person("Kevin", "Flynn", role = "ctb", email = "Flynn.Kevin@epa.gov"),
 		person("Jon", "Haselman", role = "ctb", email = "Haselman.Jon@epa.gov"),
 		person("Maki", "Sakurai", role = "ctb", email = "skr21441@ideacon.co.jp")
@@ -30,9 +30,9 @@ Author: Joe Swintek [aut, cre],
   Kevin Flynn [ctb],
   Jon Haselman [ctb],
   Maki Sakurai [ctb]
-Maintainer: Joe Swintek <swintek.joe@epa.gov>
-RoxygenNote: 7.1.0
+Maintainer: Joe Swintek <swin0023@gmail.com>
+RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-04-30 21:06:50 UTC; Here
+Packaged: 2020-11-11 16:41:09 UTC; Here
 Repository: CRAN
-Date/Publication: 2020-04-30 22:50:02 UTC
+Date/Publication: 2020-11-14 14:20:09 UTC

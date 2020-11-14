@@ -23,15 +23,15 @@ Alternative<-switch(TestDirection,
 #Test to make sure the Variables are defined
 if (TreatVar==''){
 	popMessage('Treatment variable is not properly assigned.\n Please reassign the variable and rerun the analysis.')
-	return
+	return()
 }
 if (ResponVar==''){
 	popMessage('Response variable is not properly assigned.\n Please reassign the variable and rerun the analysis.')
-return
+return()
 }
 if (RepVar==''){
 	popMessage('Replicate variable is not properly assigned.\n Please reassign the variable and rerun the analysis.')
-return
+return()
 }
 
 #Make Group and Time ordered Variables  
